@@ -4,8 +4,16 @@ const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    firstName: {
+      type: DataTypes.STRING(30),
+      allowNull: false,
+    },
+    lastName: {
+      type: DataTypes.STRING(30),
+      allowNull: false,
+    },
     username: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(30),
       allowNull: false,
       validate: {
         len: [4, 30],
@@ -35,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
   {
     defaultScope: {
       attributes: {
-        exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt'],
+        exclude: ['firstName', 'lastName', 'hashedPassword', 'email', 'createdAt', 'updatedAt'],
       },
     },
     scopes: {
@@ -51,8 +59,8 @@ module.exports = (sequelize, DataTypes) => {
   // User model methods
   // return object with User instance info that is safe to save to JWT
   User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
-    const { id, username, email } = this; // context will be the User instance
-    return { id, username, email };
+    const { id, firstName, lastName, username, email } = this; // context will be the User instance
+    return { id, firstName, lastName, username, email };
   };
   // return true if password matches with User instance's hashedPassword
   User.prototype.validatePassword = function (password) {
@@ -81,6 +89,8 @@ module.exports = (sequelize, DataTypes) => {
   User.signup = async function ({ username, email, password }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
+      firstName,
+      lastName,
       username,
       email,
       hashedPassword,
