@@ -6,9 +6,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  position: sticky;
 }
 
 .nav-link {
+  font: 16px;
   color: white;
   text-decoration: none;
+}
+
+#puppr-logo{
+  
 }
