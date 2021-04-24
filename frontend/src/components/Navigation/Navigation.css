@@ -15,6 +15,34 @@
   text-decoration: none;
 }
 
-#puppr-logo{
-  
+#puppr-logo h2 {
+  color: white;
+  font-size: 28px;
+  margin-top: 18px;
+}
+
+#puppr-logo a {
+  text-decoration: none;
+}
+
+#profile-btn {
+  background: none;
+  border: none;
+  position: relative
+}
+
+.fa-user-alt {
+  color: white;
+  font-size: 20px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  list-style-type: none;
+  /* background-color: ; */
+}
+
+#profile-nav {
+  text-decoration: none;
+  color: #212124;
 }

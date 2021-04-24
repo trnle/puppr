@@ -34,9 +34,10 @@ function Navigation({ isLoaded }) {
   return (
     <div className='nav-container'>
       <div id='puppr-logo'>
-        <img src='./logo.png' alt='Puppr logo' />
+        <a href="/">
+          <h2>puppr</h2>
+        </a>
       </div>
-
       {isLoaded && sessionLinks}
     </div>
   );
