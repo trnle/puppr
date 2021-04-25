@@ -2,7 +2,7 @@
 ### Live link: [Puppr](https://pupproni.herokuapp.com/)
 Puppr, inspired by [Flickr](https://www.flickr.com/), is a photo sharing website centered around dogs. Users can upload and view photos, comment on photos, and create their own photo albums for dogs.
 
-* Check out the [wiki](https://github.com/trnle/puppr/wiki) and the [wireframe](https://xd.adobe.com/view/bcd87cd7-4d3e-4fa9-8acc-663ff5d3f0ac-e98b/)
+Check out the [wiki](https://github.com/trnle/puppr/wiki) and the [wireframe](https://xd.adobe.com/view/bcd87cd7-4d3e-4fa9-8acc-663ff5d3f0ac-e98b/)
 
 ***
 
