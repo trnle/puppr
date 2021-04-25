@@ -52,7 +52,7 @@ Puppr, inspired by [Flickr](https://www.flickr.com/), is a photo sharing website
 #### [MVP Feature List](https://github.com/trnle/puppr/wiki/MVP-Feature-List)
 #### [Database Schema](https://github.com/trnle/puppr/wiki/Database-Schema)
 #### [API Documentation](https://github.com/trnle/puppr/wiki/API-Documentation)
-### [Frontend Routes](https://github.com/trnle/puppr/wiki/Frontend-Routes)
+#### [Frontend Routes](https://github.com/trnle/puppr/wiki/Frontend-Routes)
 
 ***
 
