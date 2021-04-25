@@ -36,12 +36,8 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <div className="dropdown-menu">
-          <div>
             <a href="/profile" id='profile-nav'>Profile</a>
-          </div>
-          <div>
-            <button onClick={logout}>Log Out</button>
-          </div>
+            <a href='/' onClick={logout} id='logout-nav'>Log Out</a>
         </div>
       )}
     </>

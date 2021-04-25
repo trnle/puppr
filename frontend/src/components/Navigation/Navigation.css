@@ -28,7 +28,7 @@
 #profile-btn {
   background: none;
   border: none;
-  position: relative
+  position: relative;
 }
 
 .fa-user-alt {
@@ -37,12 +37,26 @@
 }
 
 .dropdown-menu {
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  list-style-type: none;
-  /* background-color: ; */
+  background-color: white;
+  min-width: 160px;
+  border-radius: 3px;
+  border: 1px solid #212124;
+  box-shadow: 0 6px 5px -5px rgba(0,0,0,0.2);
+  margin-top: 13px;
+  padding: 12px 0;
 }
 
-#profile-nav {
+#profile-nav, #logout-nav {
+  font-family: 'Helvetica Neue';
+  font-size: 15px;
   text-decoration: none;
   color: #212124;
+  padding: 6px 20px;
+}
+
+#profile-nav:hover, #logout-nav:hover {
+  background-color: #f1f1f1;
 }
