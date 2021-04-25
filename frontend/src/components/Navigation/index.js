@@ -23,7 +23,7 @@ function Navigation({ isLoaded }) {
       <>
         <div id='login-container'>
           <NavLink to="/login" className='nav-link'>Log In</NavLink>
-        </div >
+        </div>
         <div id='signup-container'>
           <NavLink to="/signup" className='nav-link'>Sign Up</NavLink>
         </div>
