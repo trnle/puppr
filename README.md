@@ -1,7 +1,8 @@
 # Welcome to Puppr! 🐾
+### Live link: [Puppr](https://pupproni.herokuapp.com/)
 Puppr, inspired by [Flickr](https://www.flickr.com/), is a photo sharing website centered around dogs. Users can upload and view photos, comment on photos, and create their own photo albums for dogs.
 
-#### Live link: [Puppr](https://pupproni.herokuapp.com/)
+* Check out the [wiki](https://github.com/trnle/puppr/wiki) and the [wireframe](https://xd.adobe.com/view/bcd87cd7-4d3e-4fa9-8acc-663ff5d3f0ac-e98b/)
 
 ***
 
@@ -11,8 +12,6 @@ Puppr, inspired by [Flickr](https://www.flickr.com/), is a photo sharing website
 [Key Features](#key-features)
 
 [Code Snippets](#code-snippets)
-
-[Wiki Pages](#wiki-pages)
 
 [Stretch Goals](#stretch-goals)
 
@@ -45,14 +44,6 @@ Puppr, inspired by [Flickr](https://www.flickr.com/), is a photo sharing website
 ***
 
 ### Code Snippets
-
-***
-
-### Wiki Pages
-#### [MVP Feature List](https://github.com/trnle/puppr/wiki/MVP-Feature-List)
-#### [Database Schema](https://github.com/trnle/puppr/wiki/Database-Schema)
-#### [API Documentation](https://github.com/trnle/puppr/wiki/API-Documentation)
-#### [Frontend Routes](https://github.com/trnle/puppr/wiki/Frontend-Routes)
 
 ***
 
