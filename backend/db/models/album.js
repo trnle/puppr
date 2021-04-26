@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: 'photoId',
       through: 'AlbumPhoto'
     }
-    Album.belongsToMany(model.Photo, columnMapping);
+    Album.belongsToMany(models.Photo, columnMapping);
   };
   return Album;
 };
