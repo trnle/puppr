@@ -78,7 +78,8 @@ function LoginFormPage() {
         </label>
           <input
             id='floatField'
-            type="text"
+            type='text'
+            name='credential'
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
@@ -90,13 +91,14 @@ function LoginFormPage() {
          </label>
           <input
             id='floatField'
+            name='password'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <button type="submit" id='login-btn'>Log In</button>
+        <button type='submit' id='login-btn'>Log In</button>
         <div className='nav-sign-up'>
           <p>
             Not a Puppr member?

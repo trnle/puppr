@@ -63,11 +63,11 @@
   background-color: #128fdc;
   border-radius: 5px;
   width: 100%;
-  padding: 12px 24px;
-  margin-top: 15px;
+  padding: 10px 24px;
+  margin-top: 6px;
   border: none;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .nav-login p {
