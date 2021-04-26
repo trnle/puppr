@@ -6,6 +6,7 @@ import SplashPage from './components/SplashPage';
 import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import ExplorePage from './components/ExplorePage';
+import PageNotFound from './components/PageNotFound';
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path='/explore'>
             <ExplorePage />
+          </Route>
+          <Route path='/'>
+            <PageNotFound />
           </Route>
         </Switch>
       )}
