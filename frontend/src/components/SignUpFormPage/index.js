@@ -71,9 +71,9 @@ function SignUpFormPage() {
   return (
     <form onSubmit={handleSubmit} className='signup-container'>
       <div className='signup-form'>
-        <img src={pupprIcon} alt="Puppr Icon" height='28px' weight='28px'/>
+        <img src={pupprIcon} alt="Puppr Icon" height='28px' weight='28px' />
         <p>Sign up for Puppr</p>
-        <ul>
+        <ul id='errors-list'>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <div id='floatContainer' className='float-container'>
@@ -136,7 +136,13 @@ function SignUpFormPage() {
             required
           />
         </div>
-        <button type='submit'>Sign Up</button>
+        <button type='submit' id='sign-up-btn'>Sign Up</button>
+        <div className='nav-login'>
+          <p>
+            Already a Puppr member?
+            <a href="/login"> Log in here.</a>
+          </p>
+        </div>
       </div>
     </form>
   );
