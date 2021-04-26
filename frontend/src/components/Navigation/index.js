@@ -12,7 +12,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <NavLink exact to="/" className='nav-link'>Explore</NavLink>
+        <NavLink exact to="/explore" className='nav-link'>Explore</NavLink>
         <div id='profile-btn-container'>
           <ProfileButton user={sessionUser} />
         </div>
@@ -34,7 +34,7 @@ function Navigation({ isLoaded }) {
   return (
     <div className='nav-container'>
       <div id='puppr-logo'>
-        <a href="/">
+        <a href="/explore">
           <h2>puppr</h2>
         </a>
       </div>
