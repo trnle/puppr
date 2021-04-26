@@ -12,6 +12,11 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
+        <div id='puppr-logo'>
+          <a href="/explore">
+            <h2>puppr</h2>
+          </a>
+        </div>
         <NavLink exact to="/explore" className='nav-link'>Explore</NavLink>
         <div id='profile-btn-container'>
           <ProfileButton user={sessionUser} />
@@ -21,6 +26,11 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
+        <div id='puppr-logo'>
+          <a href="/">
+            <h2>puppr</h2>
+          </a>
+        </div>
         <div id='login-container'>
           <NavLink to="/login" className='nav-link'>Log In</NavLink>
         </div>
@@ -33,11 +43,6 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className='nav-container'>
-      <div id='puppr-logo'>
-        <a href="/explore">
-          <h2>puppr</h2>
-        </a>
-      </div>
       {isLoaded && sessionLinks}
     </div>
   );
