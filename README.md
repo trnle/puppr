@@ -6,17 +6,6 @@ Check out the [wiki](https://github.com/trnle/puppr/wiki) and the [wireframe](ht
 
 ***
 
-### Index
-[Technologies](#technologies)
-
-[Key Features](#key-features)
-
-[Code Snippets](#code-snippets)
-
-[Stretch Goals](#stretch-goals)
-
-***
-
 ### Technologies
 #### Front End
 * JavaScript
