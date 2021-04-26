@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
+import pupprIcon from '../puppr-icon.png'
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -25,30 +26,84 @@ function LoginFormPage() {
       });
   }
 
+  const FloatLabel = (() => {
+    // add active class
+    const handleFocus = (e) => {
+      const target = e.target;
+      target.parentNode.classList.add('active');
+    };
+    // remove active class
+    const handleBlur = (e) => {
+      const target = e.target;
+      if (!target.value) {
+        target.parentNode.classList.remove('active');
+      }
+      target.removeAttribute('placeholder');
+    };
+    // register events
+    const bindEvents = (element) => {
+      const floatField = element.querySelector('input');
+      floatField.addEventListener('focus', handleFocus);
+      floatField.addEventListener('blur', handleBlur);
+    };
+    // get DOM elements
+    const init = () => {
+      const floatContainers = document.querySelectorAll('.float-container');
+      floatContainers.forEach((element) => {
+        if (element.querySelector('input').value) {
+          element.classList.add('active');
+        }
+        bindEvents(element);
+      });
+    };
+
+    return {
+      init: init
+    };
+  })();
+
+  FloatLabel.init();
+
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
+    <form onSubmit={handleSubmit} className='login-container'>
+      <div className='login-form'>
+        <img src={pupprIcon} alt="Puppr Icon" height='28px' weight='28px' />
+        <p>Log in to Puppr</p>
+        <ul id='errors-list'>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
+        <div id='floatContainer' className='float-container'>
+          <label>
+            Username or Email
+        </label>
+          <input
+            id='floatField'
+            type="text"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            required
+          />
+        </div>
+        <div id='floatContainer' className='float-container'>
+          <label>
+            Password
+         </label>
+          <input
+            id='floatField'
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" id='login-btn'>Log In</button>
+        <div className='nav-sign-up'>
+          <p>
+            Not a Puppr member?
+          <a href="/signup"> Sign up here.</a>
+          </p>
+        </div>
+      </div>
     </form>
   );
 }

@@ -49,8 +49,7 @@
   padding: 12px 0;
 }
 
-#profile-nav, #logout-nav {
-  font-family: 'Helvetica Neue';
+#profile-nav {
   font-size: 15px;
   text-decoration: none;
   color: #212124;
@@ -59,4 +58,13 @@
 
 #profile-nav:hover, #logout-nav:hover {
   background-color: #f1f1f1;
+}
+
+.nav-link-2 {
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+  font-weight: 540;
+  text-decoration: none;
+  padding: 6px 20px;
 }

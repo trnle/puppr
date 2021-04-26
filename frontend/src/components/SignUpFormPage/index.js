@@ -136,7 +136,7 @@ function SignUpFormPage() {
             required
           />
         </div>
-        <button type='submit' id='sign-up-btn'>Sign Up</button>
+        <button type='submit' id='signup-btn'>Sign Up</button>
         <div className='nav-login'>
           <p>
             Already a Puppr member?
