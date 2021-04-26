@@ -32,6 +32,7 @@ Check out the [wiki](https://github.com/trnle/puppr/wiki) and the [wireframe](ht
 * PostgreSQL
 * Express.js
 * Sequelize.js
+* AWS S3
 * AJAX
 * CSURF Library
 * Express Validator Library
