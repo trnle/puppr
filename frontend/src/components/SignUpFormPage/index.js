@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignUpForm.css';
+import pupprIcon from '../puppr-icon.png'
 
 function SignUpFormPage() {
   const dispatch = useDispatch();
@@ -35,7 +36,6 @@ function SignUpFormPage() {
       const target = e.target;
       target.parentNode.classList.add('active');
     };
-
     // remove active class
     const handleBlur = (e) => {
       const target = e.target;
@@ -44,14 +44,12 @@ function SignUpFormPage() {
       }
       target.removeAttribute('placeholder');
     };
-
     // register events
     const bindEvents = (element) => {
       const floatField = element.querySelector('input');
       floatField.addEventListener('focus', handleFocus);
       floatField.addEventListener('blur', handleBlur);
     };
-
     // get DOM elements
     const init = () => {
       const floatContainers = document.querySelectorAll('.float-container');
@@ -72,10 +70,12 @@ function SignUpFormPage() {
 
   return (
     <form onSubmit={handleSubmit} className='signup-container'>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
       <div className='signup-form'>
+        <img src={pupprIcon} alt="Puppr Icon" height='28px' weight='28px'/>
+        <p>Sign up for Puppr</p>
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
         <div id='floatContainer' className='float-container'>
           <label>First Name</label>
           <input

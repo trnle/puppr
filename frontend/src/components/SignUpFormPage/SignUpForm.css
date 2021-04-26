@@ -2,7 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
+}
+
+img {
+  margin-bottom: 8px;
+}
+
+p {
+  margin: 0;
+  font-size: 20px
 }
 
 .signup-form {
