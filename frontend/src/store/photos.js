@@ -1,11 +1,12 @@
 import { csrfFetch } from './csrf';
-import { useParams } from 'react-router-dom';
+
 const LOAD_PHOTOS = 'photos/LOAD_PHOTOS';
 
 const load = photos => ({
   type: LOAD_PHOTOS,
   photos,
 })
+
 
 export const getPhotos = () => async dispatch => {
   const res = await csrfFetch(`/api/photos`);
@@ -16,12 +17,11 @@ export const getPhotos = () => async dispatch => {
   }
 }
 
-export const getUserPhotos = () => async dispatch => {
-  const { id } = useParams();
-  const res = await csrfFetch(`/api/users/${id}`);
-  const data = await res.json();
-  dispatch(load(data));
-}
+// export const getUserPhotos = (id) => async dispatch => {
+//   const res = await csrfFetch(`/api/users/${id}`);
+//   const data = await res.json();
+//   dispatch(load(data));
+// }
 
 const initialState = {
   photos: [],
