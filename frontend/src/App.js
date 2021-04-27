@@ -5,7 +5,8 @@ import Navigation from './components/Navigation';
 import SplashPage from './components/SplashPage';
 import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
-import ExplorePage from './components/ExplorePage';
+import Explore from './components/ExplorePage';
+import Profile from './components/Profile';
 import PageNotFound from './components/PageNotFound';
 import * as sessionActions from "./store/session";
 
@@ -32,7 +33,10 @@ function App() {
             <SignUpFormPage />
           </Route>
           <Route path='/explore'>
-            <ExplorePage />
+            <Explore />
+          </Route>
+          <Route path='/profile'>
+            <Profile />
           </Route>
           <Route path='/'>
             <PageNotFound />

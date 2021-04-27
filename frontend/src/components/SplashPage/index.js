@@ -20,11 +20,10 @@ function SplashPage() {
         </div>
       </div>
     )
-  } else {
-    return (
-      <Redirect to='/explore' />
-    )
   }
+  return (
+    <Redirect to='/explore' />
+  )
 }
 
 export default SplashPage;
