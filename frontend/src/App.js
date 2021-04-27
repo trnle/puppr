@@ -5,7 +5,7 @@ import Navigation from './components/Navigation';
 import SplashPage from './components/SplashPage';
 import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
-import Explore from './components/ExplorePage';
+import Explore from './components/Explore';
 import Profile from './components/Profile';
 import PageNotFound from './components/PageNotFound';
 import * as sessionActions from "./store/session";

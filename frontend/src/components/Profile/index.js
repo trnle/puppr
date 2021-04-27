@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import './Profile.css'
 
 function Profile() {
+
+  
   return(
     <h3>profile page</h3>
   )

@@ -1,37 +1,36 @@
 import { csrfFetch } from './csrf';
 
-const LOAD = 'photos/LOAD';
+const LOAD_PHOTOS = 'photos/LOAD_PHOTOS';
 
-
-const load = list => ({
-  type: LOAD,
-  list,
+const load = photos => ({
+  type: LOAD_PHOTOS,
+  photos,
 })
 
-export const getPhotos = photos => async dispatch => {
+export const getPhotos = () => async dispatch => {
   const res = await csrfFetch(`/api/photos`);
 
   if (res.ok) {
-    const list = await res.json();
-    dispatch(load(list));
+    const photos = await res.json();
+    dispatch(load(photos));
   }
 }
 
 const initialState = {
-  list: [],
+  photos: [],
 }
 
 const photosReducer = (state = initialState, action) => {
   switch(action.type) {
-    case LOAD: {
+    case LOAD_PHOTOS: {
       const allPhotos = {};
-      action.list.forEach(photo => {
+      action.photos.forEach(photo => {
         allPhotos[photo.id] = photo;
       });
       return {
         ...allPhotos,
         ...state,
-        list: action.list,
+        photos: action.photos
       };
     }
     default:

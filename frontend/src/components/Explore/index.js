@@ -1,22 +1,19 @@
 import React, { useEffect } from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPhotos } from '../../store/photos';
 
 import './Explore.css'
 
-function ExplorePage() {
+function Explore() {
   const sessionUser = useSelector(state => state.session.user);
-  // const dispatch = useDispatch();
-  // const {photoId} = useParams();
-  // console.log(photoId);
-  // const photos = useSelector(state => {
-  //   return state.photos.map(photoId => state.photos[photoId]);
-  // });
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getPhotos(photos));
-  // }, [dispatch]);
+  const photos = useSelector(state => state.photos.photos)
+
+  useEffect(() => {
+    dispatch(getPhotos());
+  }, [dispatch]);
 
   // if (!photos) {
   //   return null;
@@ -29,20 +26,16 @@ function ExplorePage() {
   }
 
   return (
-    <h3>test</h3>
+    <div className='explore-gallery'>
+      {photos.map(photo => {
+        return (
+          <div key={photo.id} className='photo-container'>
+            <img src={photo.imgURL} alt={photo.title} width='20%' height='20%'/>
+          </div>
+        )
+      })}
+    </div>
   )
-  // return (
-  //   <div className='explore-gallery'>
-  //     {photos.map(photo => {
-  //       const {id, title, imgUrl} = photo;
-  //       return (
-  //         <div key={id} className='photo-container'>
-  //           <img src={imgUrl} alt='' />
-  //         </div>
-  //       )
-  //     })}
-  //   </div>
-  // )
 }
 
-export default ExplorePage;
+export default Explore;
