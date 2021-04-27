@@ -30,7 +30,9 @@ function Explore() {
       {photos.map(photo => {
         return (
           <div key={photo.id} className='photo-container'>
-            <img src={photo.imgURL} alt={photo.title} width='20%' height='20%'/>
+            <a href={`/photos/${photo.id}`}>
+              <img src={photo.imgURL} alt={photo.title} width='20%' height='20%'/>
+            </a>
           </div>
         )
       })}

@@ -6,6 +6,7 @@ import SplashPage from './components/SplashPage';
 import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import Explore from './components/Explore';
+import Photo from './components/Photo';
 import Profile from './components/Profile';
 import PageNotFound from './components/PageNotFound';
 import * as sessionActions from "./store/session";
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path='/explore'>
             <Explore />
+          </Route>
+          <Route path={`/photos/:id`}>
+            <Photo />
           </Route>
           <Route path={`/profile`}>
             <Profile />
