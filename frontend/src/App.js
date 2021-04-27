@@ -35,7 +35,7 @@ function App() {
           <Route path='/explore'>
             <Explore />
           </Route>
-          <Route path='/profile'>
+          <Route path={`/profile`}>
             <Profile />
           </Route>
           <Route path='/'>
