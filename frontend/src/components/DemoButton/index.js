@@ -12,7 +12,7 @@ function DemoButton() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = {
-      credential: 'Demo-lition',
+      credential: 'jaxy',
       password: 'password'
     }
     await dispatch(login(user));
@@ -22,7 +22,7 @@ function DemoButton() {
   return (
     <div className='splash-demo-btn'>
       <form onSubmit={handleSubmit}>
-        <button type='submit' id='demo-btn'>Demo</button>
+        <button type='submit' id='demo-btn'>Demo User</button>
       </form>
     </div>
   )
