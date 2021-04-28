@@ -37,7 +37,7 @@ export const getOnePhoto = id => async dispatch => {
 }
 
 export const updateUserPhoto = photo => async dispatch => {
-  const res = await csrfFetch(`/api/photos/${photo.id}`, {
+  const res = await csrfFetch(`/api/photos/${photo[0]}`, {
     method: 'PUT',
     body: JSON.stringify(photo),
     headers: {
@@ -75,7 +75,14 @@ const photosReducer = (state = {}, action) => {
       })
       return newState
     }
-    
+    case UPDATE_PHOTO: {
+      newState = {
+        ...state,
+        [action.photo.id]: action.photo
+      }
+      console.log(newState);
+      return newState;
+    }
     default:
       return state;
   }

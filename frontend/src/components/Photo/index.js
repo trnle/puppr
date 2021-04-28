@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
-import { getOnePhoto, updateUserPhoto } from '../../store/photos';
+import { getOnePhoto } from '../../store/photos';
+import EditPhotoModal from '../../context/EditPhotoModal'
 
 import './Photo.css'
 
@@ -10,29 +11,11 @@ function Photo() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const photo = useSelector(state => state.photos)
-  
-  const [title, setTitle] = useState('');
-  const [caption, setCaption] = useState('');
+  console.log("photo", photo[0])
 
   useEffect(() => {
     dispatch(getOnePhoto(id));
   }, [dispatch, id])
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const updatePhoto = {
-      ...photo,
-      title,
-      caption
-    }
-
-    const updatedPhoto = await dispatch(updateUserPhoto(updatePhoto))
-    if (updatedPhoto) {
-  
-    }
-  }
-
-
 
   if (!sessionUser) {
     return (
@@ -46,9 +29,10 @@ function Photo() {
         <img src={photo[3]} alt={photo[1]} width='40%' height='40%' />
         <div className='photo-details'>
           <h3>{photo[1]}</h3>
+          <p>{photo[2]}</p>
           <a href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
         </div>
-        <p>edit me</p>
+        <EditPhotoModal />
       </div>
     )
   }
@@ -58,6 +42,7 @@ function Photo() {
       <img src={photo[3]} alt={photo[1]} width='40%' height='40%'/>
         <div className='photo-details'>
           <h3>{photo[1]}</h3>
+          <p>{photo[2]}</p>
           <a href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
         </div>
     </div>

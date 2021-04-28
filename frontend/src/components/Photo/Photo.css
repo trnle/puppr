@@ -1,11 +1,16 @@
-.single-photo-container {
+/* .single-photo-container {
   display: flex;
   flex-wrap: column;
   justify-content: center;
   padding: 100px;
 }
 
+
 .photo-details {
   
   
+} */
+
+p {
+  color: black
 }
