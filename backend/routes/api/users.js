@@ -5,7 +5,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Album, Photo } = require('../../db/models');
+const { User, Album, Photo, Comment } = require('../../db/models');
 
 const router = express.Router();
 
@@ -54,5 +54,14 @@ router.get('/:id', asyncHandler(async (req, res) => {
   const user = await User.findByPk(id, { include: [Photo, Album] })
   return res.json(user);
 }));
+
+// show specific photo
+router.get('/photos/:id', asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  let photo = await Photo.findByPk(id, { include: [Comment] });
+
+  return res.json(photo);
+}))
+
 
 module.exports = router;

@@ -10,7 +10,7 @@ function Explore() {
   const dispatch = useDispatch();
 
   const photos = useSelector(state => state.photos.photos)
-
+  console.log(photos);
   useEffect(() => {
     dispatch(getPhotos());
   }, [dispatch]);
@@ -24,14 +24,14 @@ function Explore() {
       <Redirect to='/login' />
     )
   }
-
+  
   return (
     <div className='explore-gallery'>
       {photos.map(photo => {
         return (
           <div key={photo.id} className='photo-container'>
             <a href={`/photos/${photo.id}`}>
-              <img src={photo.imgURL} alt={photo.title} width='20%' height='20%'/>
+              <img className='photo' src={photo.imgURL} alt={photo.title} width='20%' height='20%'/>
             </a>
           </div>
         )

@@ -1,12 +1,28 @@
 import { csrfFetch } from './csrf';
 
 const LOAD_PHOTOS = 'photos/LOAD_PHOTOS';
+const ADD_ONE = 'photos/ADD_ONE'
 // const ADD_ONE = 'photos/ADD_ONE';
 
 const load = photos => ({
   type: LOAD_PHOTOS,
   photos,
 })
+
+const addOnePhoto = photo => ({
+  type: ADD_ONE,
+  photo,
+});
+
+// export const addOnePhoto = photo => ({
+//   type: ADD_ONE,
+//   photo,
+// })
+
+// const loadPhoto = photo => ({
+//   type: LOAD_PHOTO,
+//   photo
+// })
 
 export const getPhotos = () => async dispatch => {
   const res = await csrfFetch('/api/photos');
@@ -17,10 +33,13 @@ export const getPhotos = () => async dispatch => {
   }
 }
 
-// export const addOnePhoto = photo => ({
-//   type: ADD_ONE,
-//   photo,
-// })
+export const getPhoto = id => async dispatch => {
+  const res = await csrfFetch(`/api/users/photos/${id}`)
+  if (res.ok) {
+    const photo = await res.json();
+    dispatch(addOnePhoto(photo));
+  }
+}
 
 // export const getOnePhoto = id => async dispatch => {
 //   const res = await csrfFetch(`/api/photos/${id}`);
@@ -54,25 +73,25 @@ const photosReducer = (state = initialState, action) => {
         photos: action.photos
       };
     }
-    // case ADD_ONE: {
-    //   if (!state[action.photo.id]) {
-    //     const newState = {
-    //       ...state,
-    //       [action.photo.id]: action.photo
-    //     };
-    //     const photoList = newState.list.map(id => newState[id]);
-    //     photoList.push(action.photo)
-    //     newState.photos = photoList
-    //     return newState;
-    //   }
-    //   return {
-    //     ...state,
-    //     [action.photo.id]: {
-    //       ...state[action.photo.id],
-    //       ...action.photo
-    //     }
-    //   }
-    // }
+    case ADD_ONE: {
+      if (!state[action.photo.id]) {
+        const newState = {
+          ...state,
+          [action.photo.id]: action.photo
+        };
+        const photoList = newState.photos.map(id => newState[id]);
+        photoList.push(action.photo);
+        newState.photos = photoList;
+        return newState;
+      }
+      return {
+        ...state,
+        [action.photo.id]: {
+          ...state[action.photo.id],
+          ...action.photo,
+        }
+      };
+    }
     default:
       return state;
   }

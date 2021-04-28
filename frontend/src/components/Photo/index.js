@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
-import { getPhotos } from '../../store/photos';
+import { getPhoto } from '../../store/photos';
 
 import './Photo.css'
 
@@ -9,14 +9,29 @@ function Photo() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const { id } = useParams();
-  const photos = useSelector(state => state.photos.photos)
-  // console.log(photos);
-  const currentPhoto = photos[id - 1];
-  console.log(currentPhoto);
-
+  const photo = useSelector(state => state.photos.photos);
+  console.log("test", photo);
+  
   useEffect(() => {
-    dispatch(getPhotos());
-  }, [dispatch]);
+    dispatch(getPhoto(id));
+  })
+  // const photos = useSelector(state => state.photos.photos)
+  // console.log(photos);
+  // const currentPhoto = photos[id - 1];
+  // let imgURL;
+  // let title;
+  // for (let key in currentPhoto) {
+  //   if (key === 'imgURL') {
+  //     imgURL = currentPhoto[key];
+  //   }
+  //   if (key === 'title') {
+  //     title = currentPhoto[title];
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   dispatch(getPhotos());
+  // }, [dispatch]);
 
   if (!sessionUser) {
     return (
@@ -26,7 +41,7 @@ function Photo() {
 
   return (
     <div>
-      {/* <img src={currentPhoto.imgURL} alt={currentPhoto.title} width='20%' height='20%' /> */}
+      {/* <img src={imgURL} alt={title} width='70%' height='70%' /> */}
     </div>
   )
 }
