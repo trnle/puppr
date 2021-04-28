@@ -30,6 +30,8 @@ router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
   return res.json(photo)
 }))
 
+
+
 // upload image
 // router.post('', requireAuth, singleMulterUpload('image'), asyncHandler(async(req, res) => {
 //   const {username} = req;
