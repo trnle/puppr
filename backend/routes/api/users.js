@@ -51,7 +51,7 @@ router.post(
 // show user info with albums and photos
 router.get('/:id', asyncHandler(async (req, res) => {
   const { id } = req.params;
-  const user = await User.findByPk(id, { include: [Photo, Album] })
+  const user = await Photo.findAll({ where: { userId: id } })
   return res.json(user);
 }));
 

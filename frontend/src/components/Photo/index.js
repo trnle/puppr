@@ -9,8 +9,8 @@ function Photo() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const { id } = useParams();
-  const photo = useSelector(state => state.photos.photo)
-  console.log("photo object", photo)
+  // const photo = useSelector(state => state.photos.photo)
+  // console.log("photo object", photo)
   // console.log("array", photo[0])
 
   useEffect(() => {
