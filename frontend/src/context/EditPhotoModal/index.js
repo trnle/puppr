@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import EditPhotoForm from './EditPhotoForm';
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserPhoto } from '../../store/photos';
+import { updateUserPhoto, deleteUserPhoto } from '../../store/photos';
+import './EditPhotoModal.css';
 
 function EditPhotoModal() {
   const [showModal, setShowModal] = useState(false);
@@ -23,7 +23,12 @@ function EditPhotoModal() {
       title,
       caption
     }
-    return await dispatch(updateUserPhoto(updatePhoto))
+    await dispatch(updateUserPhoto(updatePhoto))
+  }
+
+  const handleDelete = async e => {
+    e.preventDefault();
+    await dispatch(deleteUserPhoto(photo))
   }
 
 
@@ -38,10 +43,10 @@ function EditPhotoModal() {
               <h3>Edit Photo</h3>
               <input type="text" value={title} placeholder='Title' onChange={e => setTitle(e.target.value)} required />
               <input type="text" value={caption} placeholder='Caption' onChange={e => setCaption(e.target.value)} />
-              <button type='submit'>Submit</button>
-              {/* <button type='submit'>Delete</button> */}
-              <button onClick={() => setShowModal(false)}>Cancel</button>
+              <button type='submit'>Save</button>
             </form>
+            <button onClick={handleDelete}>Delete</button>
+            <button onClick={() => setShowModal(false)}>Cancel</button>
           </div>
         </Modal>
       )}

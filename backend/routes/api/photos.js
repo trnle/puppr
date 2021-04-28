@@ -14,7 +14,7 @@ router.get('', asyncHandler(async (req, res) => {
 }))
 
 // show specific photo
-router.get('/:id', asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const { id } = req.params;
   let photo = await Photo.findByPk(id, { include: [User] });
 
@@ -22,7 +22,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
 }))
 
 // update user photo info
-router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
+router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const { id } = req.params;
   const { title, caption } = req.body;
   const photo = await Photo.findByPk(id)
@@ -30,7 +30,12 @@ router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
   return res.json(photo)
 }))
 
-
+router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const deletePhoto = await Photo.findByPk(id);
+  await deletePhoto.destroy();
+  res.status(204).end();
+}))
 
 // upload image
 // router.post('', requireAuth, singleMulterUpload('image'), asyncHandler(async(req, res) => {

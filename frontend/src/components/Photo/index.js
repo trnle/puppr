@@ -11,7 +11,6 @@ function Photo() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const photo = useSelector(state => state.photos)
-  console.log("photo", photo[0])
 
   useEffect(() => {
     dispatch(getOnePhoto(id));
