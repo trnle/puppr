@@ -33,7 +33,7 @@ function Explore() {
             <a href={`/photos/${photo.id}`}>
               <img className='photo' src={photo.imgURL} alt={photo.title} />
               <p>{photo.title}</p>
-              <p>by {photo.User.username}</p>
+              {/* <p>by {photo.User.username}</p> */}
             </a>
           </div>
         )
