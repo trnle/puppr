@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPhotos } from '../../store/photos';
 
@@ -9,8 +9,8 @@ function Explore() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
-  const photos = useSelector(state => state.photos.photos)
-  console.log(photos);
+  const photos = useSelector(state => state.photos)
+
   useEffect(() => {
     dispatch(getPhotos());
   }, [dispatch]);
@@ -27,7 +27,7 @@ function Explore() {
 
   return (
     <div className='explore-gallery'>
-      {photos.map(photo => {
+      {Object.values(photos).map(photo => {
         return (
           <div key={photo.id} className='photo-container'>
             <a href={`/photos/${photo.id}`}>

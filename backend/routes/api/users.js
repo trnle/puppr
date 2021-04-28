@@ -55,13 +55,5 @@ router.get('/:id', asyncHandler(async (req, res) => {
   return res.json(user);
 }));
 
-// show specific photo
-router.get('/photos/:id', asyncHandler(async (req, res) => {
-  const { id } = req.params;
-  let photo = await Photo.findByPk(id, { include: [User] });
-
-  return res.json(photo);
-}))
-
 
 module.exports = router;

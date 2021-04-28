@@ -1,7 +1,8 @@
 import { csrfFetch } from './csrf';
 
 const LOAD_PHOTOS = 'photos/LOAD_PHOTOS';
-const ADD_ONE = 'photos/ADD_ONE'
+const ADD_ONE_PHOTO = 'photos/ADD_ONE_PHOTO';
+const LOAD_USER_PHOTOS = 'photos/LOAD_USER_PHOTOS';
 // const ADD_ONE = 'photos/ADD_ONE';
 
 const load = photos => ({
@@ -9,20 +10,15 @@ const load = photos => ({
   photos,
 })
 
-const addOnePhoto = photo => ({
-  type: ADD_ONE,
+const loadOnePhoto = photo => ({
+  type: ADD_ONE_PHOTO,
   photo,
 });
 
-// export const addOnePhoto = photo => ({
-//   type: ADD_ONE,
-//   photo,
-// })
-
-// const loadPhoto = photo => ({
-//   type: LOAD_PHOTO,
-//   photo
-// })
+const loadUserPhotos = photos => ({
+  type: LOAD_USER_PHOTOS,
+  photos
+})
 
 export const getPhotos = () => async dispatch => {
   const res = await csrfFetch('/api/photos');
@@ -33,64 +29,44 @@ export const getPhotos = () => async dispatch => {
   }
 }
 
-export const getPhoto = id => async dispatch => {
-  const res = await csrfFetch(`/api/users/photos/${id}`)
+export const getOnePhoto = id => async dispatch => {
+  const res = await csrfFetch(`/api/photos/${id}`)
   if (res.ok) {
     const photo = await res.json();
-    dispatch(addOnePhoto(photo));
+    dispatch(loadOnePhoto(photo));
   }
 }
 
-// export const getOnePhoto = id => async dispatch => {
-//   const res = await csrfFetch(`/api/photos/${id}`);
-
-//   if (res.ok) {
-//     const photo = await res.json();
-//     dispatch(addOnePhoto(photo))
-//   }
-// }
-
-// export const getUserPhotos = (id) => async dispatch => {
-//   const res = await csrfFetch(`/api/users/${id}`);
-//   const data = await res.json();
-//   dispatch(load(data));
-// }
-
-const initialState = {
-  photos: [],
+export const getUserPhotos = id => async dispatch => {
+  const res = await csrfFetch(`/api/users/${id}`)
+  if (res.ok) {
+    const photos = await res.json();
+    dispatch(loadUserPhotos(photos));
+  }
 }
 
-const photosReducer = (state = initialState, action) => {
+// const initialState = {
+//   photos: {}
+// }
+
+const photosReducer = (state = {}, action) => {
+  let newState = { ...state };
   switch (action.type) {
     case LOAD_PHOTOS: {
-      const allPhotos = {};
       action.photos.forEach(photo => {
-        allPhotos[photo.id] = photo;
+        newState[photo.id] = photo;
       });
-      return {
-        ...allPhotos,
-        ...state,
-        photos: action.photos
-      };
+      return newState;
     }
-    case ADD_ONE: {
-      if (!state[action.photo.id]) {
-        const newState = {
-          ...state,
-          [action.photo.id]: action.photo
-        };
-        const photoList = newState.photos.map(id => newState[id]);
-        photoList.push(action.photo);
-        newState.photos = photoList;
-        return newState;
-      }
-      return {
-        ...state,
-        [action.photo.id]: {
-          ...state[action.photo.id],
-          ...action.photo,
-        }
-      };
+    case ADD_ONE_PHOTO: {
+     return {
+       
+     }
+    }
+    case LOAD_USER_PHOTOS: {
+     return {
+
+     }
     }
     default:
       return state;

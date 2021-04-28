@@ -39,7 +39,7 @@ function App() {
           <Route path={`/photos/:id`}>
             <Photo />
           </Route>
-          <Route path={`/profile`}>
+          <Route path={`/profile/:id`}>
             <Profile />
           </Route>
           <Route path='/'>

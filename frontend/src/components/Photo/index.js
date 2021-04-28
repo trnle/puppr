@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
-import { getPhoto } from '../../store/photos';
+import { getOnePhoto } from '../../store/photos';
 
 import './Photo.css'
 
@@ -9,15 +9,14 @@ function Photo() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const { id } = useParams();
-  const photo = useSelector(state => state.photos.photos);
-  console.log("test", photo[0])
-  // const comments = photo[0].Comments;
-  // console.log('comment', photo[0].Comments)
+  const photo = useSelector(state => state.photos.photo)
+  console.log("photo object", photo)
+  // console.log("array", photo[0])
+
   useEffect(() => {
-    dispatch(getPhoto(id));
+    dispatch(getOnePhoto(id));
   })
-  // const photos = useSelector(state => state.photos.photos)
-  // console.log(photos);
+
   // const currentPhoto = photos[id - 1];
   // let imgURL;
   // let title;

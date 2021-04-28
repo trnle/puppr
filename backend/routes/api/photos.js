@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 const { User, Photo, Comment } = require('../../db/models');
 
-// const { singlePublicFileUpload, singleMulterUpload, multiplePublicFileUpload } = require('../../awsS3');
+const { singlePublicFileUpload, singleMulterUpload, multiplePublicFileUpload } = require('../../awsS3');
 
 const router = express.Router();
 
@@ -13,25 +13,21 @@ router.get('', asyncHandler(async (req, res) => {
   return res.json(photos);
 }))
 
-// show user's photostream
-// router.get('/users/:userId', asyncHandler(async (req, res) => {
-//   const { userId } = req.params;
-//   let photos = await Photo.findAll({ where: { userId } });
+// show specific photo
+router.get('/:id', asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  let photo = await Photo.findByPk(id, { include: [User] });
 
-//   return res.json(photos);
+  return res.json(photo);
+}))
+
+// upload image
+// router.post('', requireAuth, singleMulterUpload('image'), asyncHandler(async(req, res) => {
+//   const {username} = req;
+//   const {title, caption} = req.body;
+//   const imgURL = await singlePublicFileUpload(req.file);
+//   Photo.uploadImage(title, caption, imgURL, username.id);
+//   return res.json({user})
 // }))
-
-
-
-
-
-// show user's photos
-// router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-//   const { id } = req.params;
-//   const user = await Photo.findAll({ where: { userId: id } })
-//   return res.json(user);
-// }));
-
-
 
 module.exports = router;
