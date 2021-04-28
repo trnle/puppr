@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 100px;
 }
 
 .photo {
@@ -9,4 +10,5 @@
   width: 200px;
   height: 200px;
   object-fit: cover;
+  padding: 10px;
 }

@@ -1,7 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 
-const { Photo, Comment } = require('../../db/models');
+const { User, Photo, Comment } = require('../../db/models');
 
 // const { singlePublicFileUpload, singleMulterUpload, multiplePublicFileUpload } = require('../../awsS3');
 
@@ -9,7 +9,7 @@ const router = express.Router();
 
 // show all photos in db
 router.get('', asyncHandler(async (req, res) => {
-  const photos = await Photo.findAll()
+  const photos = await Photo.findAll({include: User, limit: 10})
   return res.json(photos);
 }))
 

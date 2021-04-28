@@ -24,14 +24,16 @@ function Explore() {
       <Redirect to='/login' />
     )
   }
-  
+
   return (
     <div className='explore-gallery'>
       {photos.map(photo => {
         return (
           <div key={photo.id} className='photo-container'>
             <a href={`/photos/${photo.id}`}>
-              <img className='photo' src={photo.imgURL} alt={photo.title} width='20%' height='20%'/>
+              <img className='photo' src={photo.imgURL} alt={photo.title} />
+              <p>{photo.title}</p>
+              <p>by {photo.User.username}</p>
             </a>
           </div>
         )

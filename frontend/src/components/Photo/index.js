@@ -10,8 +10,9 @@ function Photo() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const photo = useSelector(state => state.photos.photos);
-  console.log("test", photo);
-  
+  console.log("test", photo[0])
+  // const comments = photo[0].Comments;
+  // console.log('comment', photo[0].Comments)
   useEffect(() => {
     dispatch(getPhoto(id));
   })
@@ -29,10 +30,6 @@ function Photo() {
   //   }
   // }
 
-  // useEffect(() => {
-  //   dispatch(getPhotos());
-  // }, [dispatch]);
-
   if (!sessionUser) {
     return (
       <Redirect to='/login' />
@@ -41,7 +38,7 @@ function Photo() {
 
   return (
     <div>
-      {/* <img src={imgURL} alt={title} width='70%' height='70%' /> */}
+      {/* <img src={photo[0].imgURL} alt={photo[0].title} width='70%' height='70%' /> */}
     </div>
   )
 }
