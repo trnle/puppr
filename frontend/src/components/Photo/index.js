@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
-import { getOnePhoto } from '../../store/photos';
+import { getOnePhoto, updateUserPhoto } from '../../store/photos';
 
 import './Photo.css'
 
@@ -10,24 +10,29 @@ function Photo() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const photo = useSelector(state => state.photos)
-  console.log("photo object", photo)
-  // console.log("array", photo[0])
+  
+  const [title, setTitle] = useState('');
+  const [caption, setCaption] = useState('');
 
   useEffect(() => {
     dispatch(getOnePhoto(id));
   }, [dispatch, id])
 
-  // const currentPhoto = photos[id - 1];
-  // let imgURL;
-  // let title;
-  // for (let key in currentPhoto) {
-  //   if (key === 'imgURL') {
-  //     imgURL = currentPhoto[key];
-  //   }
-  //   if (key === 'title') {
-  //     title = currentPhoto[title];
-  //   }
-  // }
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const updatePhoto = {
+      ...photo,
+      title,
+      caption
+    }
+
+    const updatedPhoto = await dispatch(updateUserPhoto(updatePhoto))
+    if (updatedPhoto) {
+  
+    }
+  }
+
+
 
   if (!sessionUser) {
     return (
@@ -35,11 +40,26 @@ function Photo() {
     )
   }
 
+  if (sessionUser.id === photo[7]?.id) {
+    return (
+      <div className='single-photo-container'>
+        <img src={photo[3]} alt={photo[1]} width='40%' height='40%' />
+        <div className='photo-details'>
+          <h3>{photo[1]}</h3>
+          <a href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
+        </div>
+        <p>edit me</p>
+      </div>
+    )
+  }
+
   return (
-    <div>
-      <img src={photo[3]} alt={photo[1]} width='50%' height='50%' />
-      <h3>{photo[1]}</h3>
-      <a href={`/profile/${photo[4]}`}>by {photo[7].username}</a>
+    <div className='single-photo-container'>
+      <img src={photo[3]} alt={photo[1]} width='40%' height='40%'/>
+        <div className='photo-details'>
+          <h3>{photo[1]}</h3>
+          <a href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
+        </div>
     </div>
   )
 }

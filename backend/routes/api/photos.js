@@ -1,6 +1,6 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
-
+const { requireAuth } = require('../../utils/auth');
 const { User, Photo, Comment } = require('../../db/models');
 
 const { singlePublicFileUpload, singleMulterUpload, multiplePublicFileUpload } = require('../../awsS3');
@@ -9,7 +9,7 @@ const router = express.Router();
 
 // show all photos in db
 router.get('', asyncHandler(async (req, res) => {
-  const photos = await Photo.findAll({include: User, limit: 10})
+  const photos = await Photo.findAll({ include: User, limit: 10 })
   return res.json(photos);
 }))
 
@@ -19,6 +19,15 @@ router.get('/:id', asyncHandler(async (req, res) => {
   let photo = await Photo.findByPk(id, { include: [User] });
 
   return res.json(photo);
+}))
+
+// update user photo info
+router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const { title, caption } = req.body;
+  const photo = await Photo.findByPk(id)
+  await photo.update({ title, caption })
+  return res.json(photo)
 }))
 
 // upload image
