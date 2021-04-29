@@ -55,5 +55,11 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   return res.json(user);
 }));
 
+router.get('/:id(\\d+)/comments', asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const userComments = await Comment.findAll({ where: { userId: id } });
+  return res.json(userComments);
+}))
+
 
 module.exports = router;
