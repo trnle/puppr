@@ -17,9 +17,6 @@ function EditPhotoModal() {
   const [title, setTitle] = useState(photo[1]);
   const [caption, setCaption] = useState(photo[2]);
 
-  console.log('photo details', photo);
-
-
   const handleSubmit = async e => {
     const updatePhoto = {
       ...photo,

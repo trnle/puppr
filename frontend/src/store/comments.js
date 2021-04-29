@@ -1,7 +1,7 @@
 import { csrfFetch } from './csrf';
 
 const LOAD_COMMENTS = 'photos/LOAD_COMMENTS';
-// const ADD_COMMENT = 'photos/ADD_COMMENT';
+const ADD_COMMENT = 'photos/ADD_COMMENT';
 const UPDATE_COMMENT = '/photos/UPDATE_COMMENT';
 // const DELETE_COMMENT = '/photos/DELETE_COMMENT';
 
@@ -10,10 +10,10 @@ const load = comments => ({
   comments
 })
 
-// const addComment = comment => ({
-//   type: ADD_COMMENT,
-//   comment
-// })
+const addComment = comment => ({
+  type: ADD_COMMENT,
+  comment
+})
 
 const updateComment = comment => ({
   type: UPDATE_COMMENT,
@@ -27,6 +27,10 @@ export const getComments = id => async dispatch => {
     console.log('comments', comments);
     dispatch(load(comments));
   }
+}
+
+export const createComment = id => async dispatch => {
+  const res = await csrfFetch(`/api/comments/`)
 }
 
 export const updateUserComment = id => async dispatch => {

@@ -37,12 +37,6 @@ function Photo() {
         </div>
         <EditPhotoModal />
         <div>
-          {/* {Object.values(comments).map(comment => (
-            <div key={comment.id}>
-              <p>{comment.User.username}</p>
-                <p>{comment.body}</p>
-            </div>
-          ))} */}
           <Comments />
         </div>
       </div>
@@ -58,12 +52,6 @@ function Photo() {
         <a href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
       </div>
       <div>
-        {/* {Object.values(comments).map(comment => (
-          <div key={comment.id}>
-            <p>{comment.User.username}</p>
-            <p>{comment.body}</p>
-          </div>
-        ))} */}
         <Comments />
       </div>
     </div>

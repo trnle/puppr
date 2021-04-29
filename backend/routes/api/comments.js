@@ -12,6 +12,13 @@ router.get('/photos/:id(\\d+)', asyncHandler(async (req, res) => {
   return res.json(comments);
 }))
 
+// create comment for specific photo
+// router.post('/photos/:id(\\d+)', asyncHandler(async (req, res) => {
+//   const {id} = req.params;
+//   const photo = await Photo.findByPk(id);
+//   await Comment.create()
+// }))
+
 // update comment for specific photo
 router.put('/photos/:id(\\d+)', asyncHandler(async (req, res) => {
   const { id } = req.params;
