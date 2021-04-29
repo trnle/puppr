@@ -30,13 +30,23 @@ export const getComments = id => async dispatch => {
 }
 
 export const createComment = id => async dispatch => {
-  const res = await csrfFetch(`/api/comments/`)
+  const res = await csrfFetch(`/api/comments/photos/${id}`, {
+    method: 'POST',
+    body: JSON.stringify(id),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  if (res.ok) {
+    const newComment = await res.json();
+    dispatch(addComment(newComment));
+  }
 }
 
-export const updateUserComment = id => async dispatch => {
-  const res = await csrfFetch(`/api/comments/photos/${id}`, {
+export const updateUserComment = data => async dispatch => {
+  const res = await csrfFetch(`/api/comments/photos/${data.photoId}`, {
     method: 'PUT',
-    body: JSON.stringify(id),
+    body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json'
     }
@@ -56,6 +66,9 @@ const commentsReducer = (state = {}, action) => {
         newState[comment.id] = comment;
       })
       return newState
+    }
+    case ADD_COMMENT: {
+      return newState;
     }
     case UPDATE_COMMENT: {
       newState = {

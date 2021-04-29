@@ -13,11 +13,13 @@ router.get('/photos/:id(\\d+)', asyncHandler(async (req, res) => {
 }))
 
 // create comment for specific photo
-// router.post('/photos/:id(\\d+)', asyncHandler(async (req, res) => {
-//   const {id} = req.params;
-//   const photo = await Photo.findByPk(id);
-//   await Comment.create()
-// }))
+router.post('/photos/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const { body, userId } = req.body;
+
+  const newComment = await Comment.create({body, userId, photoId: id})
+  return res.json(newComment);
+}))
 
 // update comment for specific photo
 router.put('/photos/:id(\\d+)', asyncHandler(async (req, res) => {
