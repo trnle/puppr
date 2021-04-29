@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD_PHOTOS = 'photos/LOAD_PHOTOS';
 const LOAD_ONE_PHOTO = 'photos/LOAD_ONE_PHOTO';
+const ADD_ONE_PHOTO = 'photos/ADD_ONE_PHOTO';
 const UPDATE_PHOTO = '/photos/UPDATE_PHOTO';
 const DELETE_PHOTO = '/photos/DELETE_PHOTO';
 
@@ -14,6 +15,11 @@ const loadOnePhoto = photo => ({
   type: LOAD_ONE_PHOTO,
   photo,
 });
+
+const addOnePhoto = photo => ({
+  type: ADD_ONE_PHOTO,
+  photo
+})
 
 const updatePhoto = photo => ({
   type: UPDATE_PHOTO,
@@ -42,6 +48,22 @@ export const getOnePhoto = id => async dispatch => {
   }
 }
 
+export const uploadPhoto = data => async dispatch => {
+  const res = await csrfFetch(`/api/photos`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (res.ok) {
+    const photo = await res.json();
+    dispatch(addOnePhoto(photo));
+    return photo;
+  }
+}
+
 export const updateUserPhoto = photo => async dispatch => {
   const res = await csrfFetch(`/api/photos/${photo[0]}`, {
     method: 'PUT',
@@ -53,15 +75,17 @@ export const updateUserPhoto = photo => async dispatch => {
   if (res.ok) {
     const updatedPhoto = await res.json();
     dispatch(updatePhoto(updatedPhoto));
+    return updatedPhoto;
   }
 }
 
-export const deleteUserPhoto = photo => async dispatch => {
-  const res = await csrfFetch(`/api/photos/${photo[0]}`, {
+export const deleteUserPhoto = id => async dispatch => {
+  const res = await csrfFetch(`/api/photos/${id}`, {
     method: 'DELETE',
-  })
-
-  dispatch(deletePhoto(photo))
+  });
+  const deletedPhoto = await res.json();
+  console.log('delete', deletePhoto);
+  dispatch(deletePhoto(deletedPhoto))
 }
 
 export const getUserPhotos = id => async dispatch => {
@@ -89,16 +113,34 @@ const photosReducer = (state = {}, action) => {
       })
       return newState
     }
+    case ADD_ONE_PHOTO: {
+      if (!state[action.photo.id]) {
+        const newState = {
+          ...state,
+          [action.photo.id]: action.photo
+        };
+        const photoList = newState.map(id => newState[id]);
+        photoList.push(action.photo);
+        return newState;
+      }
+      return {
+        ...state,
+        [action.photo.id]: {
+          ...state[action.photo.id],
+          ...action.photo,
+        }
+      };
+    }
     case UPDATE_PHOTO: {
       newState = {
         ...state,
         [action.photo.id]: action.photo
       }
-      console.log(newState);
       return newState;
     }
     case DELETE_PHOTO: {
       newState = { ...state }
+      console.log("action", action.photo);
       delete newState[action.photo]
       return newState
     }

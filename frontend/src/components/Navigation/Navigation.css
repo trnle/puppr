@@ -25,13 +25,13 @@
   text-decoration: none;
 }
 
-#profile-btn {
+#profile-btn, #upload-btn {
   background: none;
   border: none;
   position: relative;
 }
 
-.fa-user-alt {
+.fa-user-alt, .fa-cloud-upload-alt {
   color: white;
   font-size: 20px;
 }
@@ -49,7 +49,7 @@
   padding: 12px 0;
 }
 
-#profile-nav {
+#profile-nav, #logout-nav {
   font-size: 15px;
   text-decoration: none;
   color: #212124;

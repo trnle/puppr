@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import UploadPhotoModal from '../../context/UploadPhotoModal';
 // import LoginFormModal from '../LoginFormPage'
 import './Navigation.css';
 
@@ -18,6 +19,9 @@ function Navigation({ isLoaded }) {
           </a>
         </div>
         <NavLink exact to="/explore" className='nav-link'>Explore</NavLink>
+        <div id='upload-btn-container'>
+          <UploadPhotoModal user={sessionUser}/>
+        </div>
         <div id='profile-btn-container'>
           <ProfileButton user={sessionUser} />
         </div>

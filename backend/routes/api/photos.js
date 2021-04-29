@@ -3,8 +3,6 @@ const asyncHandler = require('express-async-handler');
 const { requireAuth } = require('../../utils/auth');
 const { User, Photo, Comment } = require('../../db/models');
 
-const { singlePublicFileUpload, singleMulterUpload, multiplePublicFileUpload } = require('../../awsS3');
-
 const router = express.Router();
 
 // show all photos in db
@@ -38,12 +36,11 @@ router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
 }))
 
 // upload image
-// router.post('', requireAuth, singleMulterUpload('image'), asyncHandler(async(req, res) => {
-//   const {username} = req;
-//   const {title, caption} = req.body;
-//   const imgURL = await singlePublicFileUpload(req.file);
-//   Photo.uploadImage(title, caption, imgURL, username.id);
-//   return res.json({user})
-// }))
+router.post('', requireAuth, asyncHandler(async (req, res) => {
+  const { title, caption, imgURL } = req.body;
+  console.log('user',req.user.id);
+  const photo = await Photo.create(title, caption, imgURL, req.user.id);
+  return res.json(photo)
+}))
 
 module.exports = router;
