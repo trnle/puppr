@@ -1,21 +1,25 @@
 .photo-page-container {
   display: flex;
-  flex-wrap: column;
+  flex-direction: column;
   justify-content: center;
 }
 
 .single-photo-container {
   justify-content: center;
   padding: 100px;
+  background-color: #212124;
+}
+
+#photo-title, #photo-caption, #photographer {
+  color: white;
 }
 
 .comments-container {
   justify-content: center;
 }
 
-
 p {
-  color: black
+  color: black;
 }
 
 

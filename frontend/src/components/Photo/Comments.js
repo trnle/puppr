@@ -28,23 +28,23 @@ function Comments() {
   }
 
   const addUserComment = async e => {
-    // e.preventDefault();
-    await dispatch(createComment(id));
+    e.preventDefault();
 
     const comment = {
-      body,
+      body: newComment,
       userId: sessionUser.id,
       photoId: id
     }
 
-    const newComment = await dispatch(createComment(comment));
-    return newComment;
+    console.log('comment1', comment)
+
+    dispatch(createComment(comment));
   }
 
   // const handleDelete = async e => {
-    // e.preventDefault();
-    // await dispatch(deleteUserPhoto(id))
-    // history.push(`/profile/${photo[4]}`);
+  // e.preventDefault();
+  // await dispatch(deleteUserPhoto(id))
+  // history.push(`/profile/${photo[4]}`);
   // }
 
   if (!sessionUser) {
@@ -53,7 +53,7 @@ function Comments() {
     )
   }
 
- 
+
   if (sessionUser.id === userComments[0]?.userId) {
     return (
       <div className='comments-container'>
@@ -62,10 +62,10 @@ function Comments() {
             <p id='username-display'>{comment?.User.username}</p>
             <p>{comment.body}</p>
             <form key={comment.id} onSubmit={handleSubmit}>
-              <input type="text" value={body} placeholder={body}/>
+              <input type="text" value={body} placeholder={body} />
               <button>Save</button>
-              <button>Delete</button>
             </form>
+            <button>X</button>
           </div>
         ))}
         {Object.values(otherComments).map(comment => (
@@ -76,7 +76,7 @@ function Comments() {
         ))}
         <div>
           <form onSubmit={addUserComment}>
-            <textarea value={newComment} onChange={e => setNewComment(e.target.value)} name="" placeholder='Write a comment...' id="" cols="30" rows="10" required></textarea>
+            <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="30" rows="10" required></textarea>
             <button>Comment</button>
           </form>
         </div>
@@ -94,7 +94,7 @@ function Comments() {
       ))}
       <div>
         <form onSubmit={addUserComment}>
-          <textarea value={newComment} onChange={e => setNewComment(e.target.value)} name="" placeholder='Write a comment...' id="" cols="30" rows="10" required></textarea>
+          <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="30" rows="10" required></textarea>
           <button>Comment</button>
         </form>
       </div>

@@ -32,9 +32,9 @@ function Photo() {
         <div className='single-photo-container'>
           <img src={photo[3]} alt={photo[1]} width='40%' height='40%' />
           <div className='photo-details'>
-            <h3>{photo[1]}</h3>
-            <p>{photo[2]}</p>
-            <a href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
+            <h3 id='photo-title'>{photo[1]}</h3>
+            <p id='photo-caption'>{photo[2]}</p>
+            <a id='photographer' href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
           </div>
         </div>
         <EditPhotoModal />
@@ -54,9 +54,9 @@ function Photo() {
           <p>{photo[2]}</p>
           <a href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
         </div>
-        <div>
-          <Comments />
-        </div>
+      </div>
+      <div>
+        <Comments />
       </div>
     </div>
   )
