@@ -1,17 +1,22 @@
 import { csrfFetch } from './csrf';
 
 const LOAD_COMMENTS = 'photos/LOAD_COMMENTS';
-const ADD_COMMENT = 'photos/ADD_COMMENT';
+// const ADD_COMMENT = 'photos/ADD_COMMENT';
 const UPDATE_COMMENT = '/photos/UPDATE_COMMENT';
-const DELETE_COMMENT = '/photos/DELETE_COMMENT';
+// const DELETE_COMMENT = '/photos/DELETE_COMMENT';
 
 const load = comments => ({
   type: LOAD_COMMENTS,
   comments
 })
 
-const addComment = comment => ({
-  type: ADD_COMMENT,
+// const addComment = comment => ({
+//   type: ADD_COMMENT,
+//   comment
+// })
+
+const updateComment = comment => ({
+  type: UPDATE_COMMENT,
   comment
 })
 
@@ -24,6 +29,21 @@ export const getComments = id => async dispatch => {
   }
 }
 
+export const updateUserComment = id => async dispatch => {
+  const res = await csrfFetch(`/api/comments/photos/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(id),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  if (res.ok) {
+    const updatedComment = await res.json();
+    dispatch(updateComment(updatedComment));
+    return updatedComment;
+  }
+}
+
 const commentsReducer = (state = {}, action) => {
   let newState = {};
   switch(action.type) {
@@ -31,6 +51,13 @@ const commentsReducer = (state = {}, action) => {
       action.comments.forEach(comment => {
         newState[comment.id] = comment;
       })
+      return newState
+    }
+    case UPDATE_COMMENT: {
+      newState = {
+        ...state,
+        [action.comment.id]: action.comment
+      }
       return newState
     }
     default:

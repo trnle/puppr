@@ -28,5 +28,16 @@ module.exports = (sequelize, DataTypes) => {
     }
     Photo.belongsToMany(models.Album, columnMapping);
   };
+
+  Photo.uploadImage = async function (title, description, imgUrl, userId) {
+    const photo = await Photo.create({
+      title,
+      description,
+      imgUrl,
+      userId
+    });
+    return photo;
+  };
+
   return Photo;
 };

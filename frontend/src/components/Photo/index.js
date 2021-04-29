@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
 import { getOnePhoto } from '../../store/photos';
-import { getComments } from '../../store/comments';
+import Comments from './Comments';
 import EditPhotoModal from '../../context/EditPhotoModal'
 
 import './Photo.css'
@@ -12,11 +12,9 @@ function Photo() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const photo = useSelector(state => state.photos);
-  const comments = useSelector(state=> state.comments);
-  console.log('test',comments);
+
   useEffect(() => {
     dispatch(getOnePhoto(id));
-    dispatch(getComments(id));
   }, [dispatch, id])
 
   if (!sessionUser) {
@@ -36,12 +34,7 @@ function Photo() {
         </div>
         <EditPhotoModal />
         <div>
-          {Object.values(comments).map(comment => (
-            <div key={comment.id}>
-              <p>{comment.User.username}</p>
-                <p>{comment.body}</p>
-            </div>
-          ))}
+          <Comments />
         </div>
       </div>
     )
@@ -56,12 +49,7 @@ function Photo() {
         <a href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
       </div>
       <div>
-        {Object.values(comments).map(comment => (
-          <div key={comment.id}>
-            <p>{comment.User.username}</p>
-            <p>{comment.body}</p>
-          </div>
-        ))}
+        <Comments />
       </div>
     </div>
   )
