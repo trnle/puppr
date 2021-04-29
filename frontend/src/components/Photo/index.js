@@ -36,8 +36,8 @@ function Photo() {
             <p id='photo-caption'>{photo[2]}</p>
             <a id='photographer' href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
           </div>
+          <EditPhotoModal />
         </div>
-        <EditPhotoModal />
         <div>
           <Comments />
         </div>

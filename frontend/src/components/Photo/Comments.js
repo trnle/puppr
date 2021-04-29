@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
-import { getComments, updateUserComment, createComment } from '../../store/comments';
+import { getComments, createComment, deleteComment } from '../../store/comments';
 
 import './Photo.css'
 
@@ -15,17 +15,12 @@ function Comments() {
   let userComments = Object.values(comments).filter(comment => comment?.userId === sessionUser.id)
   let otherComments = Object.values(comments).filter(comment => comment?.userId !== sessionUser.id)
 
-  const [body, setBody] = useState('');
   const [newComment, setNewComment] = useState('');
-
+  const [deletedComment, setDeletedComment] = useState('');
 
   useEffect(() => {
     dispatch(getComments(id));
   }, [dispatch, id])
-
-  const handleSubmit = async e => {
-    await dispatch(updateUserComment(id));
-  }
 
   const addUserComment = async e => {
     e.preventDefault();
@@ -36,16 +31,15 @@ function Comments() {
       photoId: id
     }
 
-    console.log('comment1', comment)
-
     dispatch(createComment(comment));
   }
 
-  // const handleDelete = async e => {
-  // e.preventDefault();
-  // await dispatch(deleteUserPhoto(id))
-  // history.push(`/profile/${photo[4]}`);
-  // }
+  const handleDelete = async e => {
+    e.preventDefault();
+    console.log('delete',deletedComment);
+    dispatch(deleteComment(deletedComment));
+    // history.push(`/profile/${photo[4]}`);
+  }
 
   if (!sessionUser) {
     return (
@@ -61,11 +55,9 @@ function Comments() {
           <div key={comment.id}>
             <p id='username-display'>{comment?.User.username}</p>
             <p>{comment.body}</p>
-            <form key={comment.id} onSubmit={handleSubmit}>
-              <input type="text" value={body} placeholder={body} />
-              <button>Save</button>
+            <form onClick={handleDelete}>
+              <button onClick={e => setDeletedComment(comment.id)}>X</button>
             </form>
-            <button>X</button>
           </div>
         ))}
         {Object.values(otherComments).map(comment => (
