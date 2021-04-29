@@ -84,7 +84,7 @@ export const deleteUserPhoto = id => async dispatch => {
     method: 'DELETE',
   });
   const deletedPhoto = await res.json();
-  console.log('delete', deletePhoto);
+  // console.log('delete', deletePhoto);
   dispatch(deletePhoto(deletedPhoto))
 }
 

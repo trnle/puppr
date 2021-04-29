@@ -43,4 +43,10 @@ router.post('', requireAuth, asyncHandler(async (req, res) => {
   return res.json(photo)
 }))
 
+// router.get('/:id(\\d+)/comments', asyncHandler(async(req, res) => {
+//   const {id} = req.params;
+//   const comments = await Comment.findAll({where: {photoId: id}, include: User})
+//   return res.json(comments);
+// }))
+
 module.exports = router;

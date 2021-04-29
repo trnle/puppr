@@ -2,10 +2,10 @@
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import DemoButton from '../DemoButton';
-import './SplashPage.css'
+import './Splash.css'
 
 
-function SplashPage() {
+function Splash() {
   const sessionUser = useSelector(state => state.session.user);
 
   if (!sessionUser) {
@@ -26,4 +26,4 @@ function SplashPage() {
   )
 }
 
-export default SplashPage;
+export default Splash;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { Route, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import SplashPage from './components/SplashPage';
+import Splash from './components/Splash';
 import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import Explore from './components/Explore';
@@ -25,7 +25,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
-            <SplashPage />
+            <Splash />
           </Route>
           <Route path='/login'>
             <LoginFormPage />
