@@ -23,8 +23,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const { id } = req.params;
   const { title, caption } = req.body;
-  // const photo = await Photo.findByPk(id);
-  // await photo.update({ title, caption }, {include: [User]});
   const photo = await Photo.update(req.body, { where: { id } })
   const newPhoto = await Photo.findByPk(id, { include: [User] });
 

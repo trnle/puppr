@@ -2,7 +2,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD_COMMENTS = 'photos/LOAD_COMMENTS';
 const ADD_COMMENT = 'photos/ADD_COMMENT';
-// const UPDATE_COMMENT = '/photos/UPDATE_COMMENT';
+const UPDATE_COMMENT = '/photos/UPDATE_COMMENT';
 const REMOVE_COMMENT = '/photos/REMOVE_COMMENT';
 
 const load = comments => ({
@@ -15,10 +15,10 @@ const addComment = comment => ({
   comment
 })
 
-// const updateComment = comment => ({
-//   type: UPDATE_COMMENT,
-//   comment
-// })
+const updateComment = comment => ({
+  type: UPDATE_COMMENT,
+  comment
+})
 
 const removeComment = comment => ({
   type: REMOVE_COMMENT,
@@ -47,6 +47,21 @@ export const createComment = data => async dispatch => {
   }
 }
 
+export const updateUserComment = comment => async dispatch => {
+  const res = await csrfFetch(`/api/comments/photos/${comment.photoId}`, {
+    method: 'PUT',
+    body: JSON.stringify(comment),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  if (res.ok) {
+    const updatedComment = await res.json();
+    dispatch(updateComment(updatedComment));
+    return updatedComment;
+  }
+}
+
 export const deleteComment = id => async dispatch => {
   const res = await csrfFetch(`/api/comments/${id}`, {
     method: 'DELETE',
@@ -56,20 +71,6 @@ export const deleteComment = id => async dispatch => {
   }
 }
 
-// export const updateUserComment = data => async dispatch => {
-//   const res = await csrfFetch(`/api/comments/photos/${data.photoId}`, {
-//     method: 'PUT',
-//     body: JSON.stringify(data),
-//     headers: {
-//       'Content-Type': 'application/json'
-//     }
-//   });
-//   if (res.ok) {
-//     const updatedComment = await res.json();
-//     dispatch(updateComment(updatedComment));
-//     return updatedComment;
-//   }
-// }
 
 const commentsReducer = (state = {}, action) => {
   let newState = {};
@@ -85,18 +86,18 @@ const commentsReducer = (state = {}, action) => {
       newState[action.comment.id] = action.comment
       return newState;
     }
+    case UPDATE_COMMENT: {
+      newState = {
+        ...state,
+        [action.comment.id]: action.comment
+      }
+      return newState
+    }
     case REMOVE_COMMENT: {
       newState = {...state}
       delete newState[action.comment]
       return newState;
     }
-    // case UPDATE_COMMENT: {
-    //   newState = {
-    //     ...state,
-    //     [action.comment.id]: action.comment
-    //   }
-    //   return newState
-    // }
     default:
       return state;
   }

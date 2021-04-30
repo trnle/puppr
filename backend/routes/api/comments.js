@@ -26,13 +26,13 @@ router.post('/photos/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
 }))
 
 // update comment for specific photo
-// router.put('/photos/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-//   const { id } = req.params;
-//   const { body } = req.body;
-//   const comment = await Comment.findOne({ where: { photoId: id } });
-//   await comment.update({ body });
-//   return res.json(comment);
-// }))
+router.put('/photos/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  // const { body } = req.body;
+  const comment = await Comment.findOne({ where: { photoId: id } });
+  await comment.update(req.body);
+  return res.json(comment);
+}))
 
 router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const { id } = req.params;

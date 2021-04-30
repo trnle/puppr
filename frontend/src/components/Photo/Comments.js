@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
-import { getComments, createComment, deleteComment } from '../../store/comments';
+import { getComments, createComment, updateUserComment, deleteComment } from '../../store/comments';
 
 import './Photo.css'
 
@@ -17,6 +17,8 @@ function Comments() {
 
   const [newComment, setNewComment] = useState('');
   const [deletedCommentId, setDeletedCommentId] = useState('');
+  // const [editComment, setEditComment] = useState('hidden');
+  // const [body, setBody] = useState('');
 
   useEffect(() => {
     dispatch(getComments(id));
@@ -36,12 +38,27 @@ function Comments() {
     setNewComment('');
   }
   
-  const handleDelete = async e => {
+  const handleDelete = e => {
     e.preventDefault();
-
-    console.log('delete', deletedCommentId);
     dispatch(deleteComment(deletedCommentId));
   }
+
+  // const handleEdit = e => {
+  //   e.preventDefault();
+  //   setEditComment('block')
+  // }
+
+  // const handleSaveEdit = e => {
+  //   e.preventDefault();
+  //   const updateComment = {
+  //     body,
+  //     userId: sessionUser.id,
+  //     photoId: id
+  //   }
+  //   console.log('testttting',updateComment);
+  //   dispatch(updateUserComment(updateComment));
+  //   setEditComment('hidden');
+  // }
 
   if (!sessionUser) {
     return (
@@ -61,8 +78,15 @@ function Comments() {
           ))}
           {Object.values(userComments).map(comment => (
             <div key={comment.id}>
-              <p id='username-display'>{comment.User.username}</p>
+              <p id='username-display'>{comment.User?.username}</p>
               <p>{comment.body}</p>
+              {/* {editComment === 'block' && 
+              <form onSubmit={handleSaveEdit}>
+                <input type={editComment} value={body} onChange={e => setBody(e.target.value)}/>
+                <button>Save</button>
+              </form>
+              } */}
+              {/* {editComment === 'hidden' && <button onClick={handleEdit}>Edit</button>} */}
               <form onSubmit={handleDelete}>
                 <button type='submit' onClick={e => setDeletedCommentId(comment.id)}>X</button>
               </form>
