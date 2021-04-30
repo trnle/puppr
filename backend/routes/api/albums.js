@@ -14,11 +14,4 @@ router.get('/:albumId(\\d+)', asyncHandler(async (req, res) => {
 }))
 
 
-// show user's albums
-// router.get('/:id(\\d+)/albums', asyncHandler(async (req, res) => {
-//   const { id } = req.params;
-//   const albums = await Album.findAll({ where: { userId: id } });
-//   return res.json(albums);
-// }))
-
 module.exports = router;

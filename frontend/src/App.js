@@ -8,6 +8,7 @@ import SignUpFormPage from './components/SignUpFormPage';
 import Explore from './components/Explore';
 import Photo from './components/Photo';
 import Profile from './components/Profile';
+import Albums from './components/Albums';
 import PageNotFound from './components/PageNotFound';
 import * as sessionActions from "./store/session";
 
@@ -39,8 +40,11 @@ function App() {
           <Route path={`/photos/:id`}>
             <Photo />
           </Route>
-          <Route path={`/profile/:id`}>
+          <Route exact path={`/profile/:id`}>
             <Profile />
+          </Route>
+          <Route path={`/profile/:id/albums`}>
+            <Albums />
           </Route>
           <Route path='/'>
             <PageNotFound />

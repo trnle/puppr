@@ -48,7 +48,7 @@ router.post(
   }),
 );
 
-// show user info with albums and photos
+// show user info with photos for photostream
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const { id } = req.params;
   const user = await Photo.findAll({ where: { userId: id } })
@@ -61,5 +61,11 @@ router.get('/:id(\\d+)/comments', asyncHandler(async (req, res) => {
   return res.json(userComments);
 }))
 
+// show user's albums
+router.get('/:id(\\d+)/albums', asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const albums = await Album.findAll({ where: { userId: id }, include: Photo });
+  return res.json(albums);
+}))
 
 module.exports = router;

@@ -10,10 +10,7 @@ function Profile() {
   const dispatch = useDispatch();
 
   const userPhotos = useSelector(state => state.photos)
-  // const userPhotos = userData.Photos;
-  // const userAlbums = userData.Albums;
-  // console.log("photos", userPhotos);
-  // console.log("albums", userAlbums);
+
 
   useEffect(() => {
     dispatch(getUserPhotos(id));
@@ -27,7 +24,11 @@ function Profile() {
 
   return (
     <div className='profile-photostream'>
-      <h3>profile page</h3>
+      <div>
+        <h3>profile page</h3>
+        <a href={`/profile`}>Photostream</a>
+        <a href={`/profile/${sessionUser.id}/albums`}>Albums</a>
+      </div>
       <div className='user-photos'>
         {Object.values(userPhotos).map(photo => {
           return (
