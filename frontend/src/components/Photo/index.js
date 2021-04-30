@@ -14,7 +14,7 @@ function Photo() {
   const { id } = useParams();
   const photo = useSelector(state => state.photos[id]);
   const comments = useSelector(state => state.comments);
-  console.log('test', comments);
+
   useEffect(() => {
     dispatch(getOnePhoto(id));
     dispatch(getComments(id));

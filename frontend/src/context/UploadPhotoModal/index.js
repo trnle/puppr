@@ -28,7 +28,7 @@ function UploadPhotoModal({ user }) {
     dispatch(uploadPhoto(uploadedPhoto))
     console.log('uploaded', uploadedPhoto);
     setShowModal(false);
-    // history.push(`/photos/${uploadedPhoto.id}`)
+    history.push(`/photos/${uploadedPhoto.id}`)
   }
 
   return (

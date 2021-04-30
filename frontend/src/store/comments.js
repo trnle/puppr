@@ -29,7 +29,6 @@ export const getComments = id => async dispatch => {
   const res = await csrfFetch(`/api/comments/photos/${id}`);
   if (res.ok) {
     const comments = await res.json();
-    console.log('comments', comments);
     dispatch(load(comments));
   }
 }

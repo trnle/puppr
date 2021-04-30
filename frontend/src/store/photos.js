@@ -49,7 +49,7 @@ export const getOnePhoto = id => async dispatch => {
 }
 
 export const uploadPhoto = data => async dispatch => {
-  const res = await csrfFetch(`/api/photos`, {
+  const res = await csrfFetch(`/api/photos/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -59,8 +59,9 @@ export const uploadPhoto = data => async dispatch => {
 
   if (res.ok) {
     const photo = await res.json();
+    console.log('add photo', photo)
     dispatch(addOnePhoto(photo));
-    // return photo;
+    return photo;
   }
 }
 
@@ -74,7 +75,6 @@ export const updateUserPhoto = photo => async dispatch => {
   });
   if (res.ok) {
     const updatedPhoto = await res.json();
-    console.log('hello',updatedPhoto);
     dispatch(updatePhoto(updatedPhoto));
     return updatedPhoto;
   }
