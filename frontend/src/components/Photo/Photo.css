@@ -32,7 +32,7 @@
 .follow-btn {
   display: inline-block;
   margin-left: 360px;
-  position: absolute;
+  position: static;
 }
 
 

@@ -40,8 +40,8 @@ function Photo() {
           <div className='photo-details'>
             <a id='photographer' href={`/profile/${photo.User.id}`}>{photo.User.username}</a>
             <p id='photo-title'>{photo.title}</p>
-            <EditPhotoModal />
             <p id='photo-caption'>{photo.caption}</p>
+            <EditPhotoModal />
           </div>
           <div className='tags-container'>Tags Coming Soon</div>
           <Comments />
