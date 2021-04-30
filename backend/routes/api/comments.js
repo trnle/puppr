@@ -20,9 +20,9 @@ router.post('/photos/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const newComment = await Comment.create(
     { body, userId, photoId: id },
   )
+  
   const data = await Comment.findByPk(newComment.id, { include: User });
   return res.json(data);
-
 }))
 
 // update comment for specific photo

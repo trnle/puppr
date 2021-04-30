@@ -30,7 +30,7 @@ function EditPhotoModal() {
 
   const handleDelete = async e => {
     // e.preventDefault();
-    await dispatch(deleteUserPhoto(id))
+    dispatch(deleteUserPhoto(id))
     history.push(`/profile/${photo.User.id}`);
   }
 

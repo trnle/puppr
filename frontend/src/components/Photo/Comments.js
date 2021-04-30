@@ -12,11 +12,11 @@ function Comments() {
 
   const comments = useSelector(state => state.comments);
   // retrieve comments of user
-  let userComments = Object.values(comments).filter(comment => comment?.userId === sessionUser.id)
-  let otherComments = Object.values(comments).filter(comment => comment?.userId !== sessionUser.id)
+  let userComments = Object.values(comments).filter(comment => comment.userId === sessionUser.id)
+  let otherComments = Object.values(comments).filter(comment => comment.userId !== sessionUser.id)
 
   const [newComment, setNewComment] = useState('');
-  const [deletedComment, setDeletedComment] = useState('');
+  const [deletedCommentId, setDeletedCommentId] = useState('');
 
   useEffect(() => {
     dispatch(getComments(id));
@@ -37,9 +37,10 @@ function Comments() {
   }
 
   const handleDelete = async e => {
-    // e.preventDefault();
-    console.log('delete', deletedComment);
-    await dispatch(deleteComment(deletedComment));
+    e.preventDefault();
+
+    console.log('delete', deletedCommentId);
+    dispatch(deleteComment(deletedCommentId));
   }
 
   if (!sessionUser) {
@@ -54,10 +55,10 @@ function Comments() {
         <div className='comments-container'>
           {Object.values(userComments).map(comment => (
             <div key={comment.id}>
-              <p id='username-display'>{comment?.User.username}</p>
+              <p id='username-display'>{comment.User.username}</p>
               <p>{comment.body}</p>
               <form onSubmit={handleDelete}>
-                <button type='submit' onClick={e => setDeletedComment(comment?.id)}>X</button>
+                <button type='submit' onClick={e => setDeletedCommentId(comment.id)}>X</button>
               </form>
             </div>
           ))}

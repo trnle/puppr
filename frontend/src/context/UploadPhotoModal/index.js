@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Modal } from '../../context/Modal';
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { uploadPhoto } from '../../store/photos';
 
-import { } from '../../store/photos';
 import './UploadPhotoModal.css';
 
 
 function UploadPhotoModal({ user }) {
+  const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState('');
-  const [caption, setCaption] = useState();
+  const [caption, setCaption] = useState('');
   const [imgURL, setImgURL] = useState('');
-  const [userId, setUserId] = useState(user.id)
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -23,13 +22,14 @@ function UploadPhotoModal({ user }) {
       title,
       caption,
       imgURL,
-      userId
+      userId: sessionUser.id
     }
 
-    await dispatch(uploadPhoto(uploadedPhoto))
-    history.push(`/photos/`)
+    dispatch(uploadPhoto(uploadedPhoto))
+    console.log('uploaded', uploadedPhoto);
+    setShowModal(false);
+    // history.push(`/photos/${uploadedPhoto.id}`)
   }
-
 
   return (
     <div className='modal'>

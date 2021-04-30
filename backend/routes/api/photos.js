@@ -27,7 +27,7 @@ router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   // await photo.update({ title, caption }, {include: [User]});
   const photo = await Photo.update(req.body, { where: { id } })
   const newPhoto = await Photo.findByPk(id, { include: [User] });
-  console.log(photo, "=================")
+
   return res.json(newPhoto);
 }))
 
@@ -40,10 +40,11 @@ router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
 
 // upload image
 router.post('', requireAuth, asyncHandler(async (req, res) => {
-  const { title, caption, imgURL } = req.body;
+  const { title, caption, imgURL, userId } = req.body;
   // console.log('user',req.user.id);
-  const photo = await Photo.create(title, caption, imgURL, req.user.id);
-  return res.json(photo)
+  const newPhoto = await Photo.create(title, caption, imgURL, userId);
+  // const data = await Photo.findByPk(newPhoto.id);
+  return res.json(newPhoto)
 }))
 
 // router.get('/:id(\\d+)/comments', asyncHandler(async(req, res) => {

@@ -60,7 +60,7 @@ export const uploadPhoto = data => async dispatch => {
   if (res.ok) {
     const photo = await res.json();
     dispatch(addOnePhoto(photo));
-    return photo;
+    // return photo;
   }
 }
 
@@ -84,9 +84,10 @@ export const deleteUserPhoto = id => async dispatch => {
   const res = await csrfFetch(`/api/photos/${id}`, {
     method: 'DELETE',
   });
-  const deletedPhoto = await res.json();
-  // console.log('delete', deletePhoto);
-  dispatch(deletePhoto(deletedPhoto))
+  if (res.ok) {
+    const deletedPhoto = await res.json();
+    dispatch(deletePhoto(deletedPhoto))
+  }
 }
 
 export const getUserPhotos = id => async dispatch => {
@@ -107,32 +108,29 @@ const photosReducer = (state = {}, action) => {
       return newState;
     }
     case LOAD_ONE_PHOTO: {
-      console.log('action',action.photo);
       newState[action.photo.id] = action.photo
-      // let id = 0;
-      // action.photo.forEach(data => {
-      //   newState[id] = data;
-      //   id++;
-      // })
       return newState
     }
     case ADD_ONE_PHOTO: {
-      if (!state[action.photo.id]) {
-        const newState = {
-          ...state,
-          [action.photo.id]: action.photo
-        };
-        const photoList = newState.map(id => newState[id]);
-        photoList.push(action.photo);
-        return newState;
-      }
-      return {
-        ...state,
-        [action.photo.id]: {
-          ...state[action.photo.id],
-          ...action.photo,
-        }
-      };
+      const newState = {...state}
+      newState[action.photo.id] = action.photo
+      return newState;
+      // if (!state[action.photo.id]) {
+      //   const newState = {
+      //     ...state,
+      //     [action.photo.id]: action.photo
+      //   };
+      //   const photoList = newState.map(id => newState[id]);
+      //   photoList.push(action.photo);
+      //   return newState;
+      // }
+      // return {
+      //   ...state,
+      //   [action.photo.id]: {
+      //     ...state[action.photo.id],
+      //     ...action.photo,
+      //   }
+      // };
     }
     case UPDATE_PHOTO: {
       newState = {
@@ -142,10 +140,9 @@ const photosReducer = (state = {}, action) => {
       return newState;
     }
     case DELETE_PHOTO: {
-      newState = { ...state }
-      console.log("action", action.photo);
-      delete newState[action.photo]
-      return newState
+      // newState = { ...state }
+      // delete newState[action.photo]
+      return {}
     }
     default:
       return state;

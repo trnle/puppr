@@ -37,10 +37,10 @@ export const getComments = id => async dispatch => {
 export const createComment = data => async dispatch => {
   const res = await csrfFetch(`/api/comments/photos/${data.photoId}`, {
     method: 'POST',
-    body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
+    body: JSON.stringify(data),
   });
   if (res.ok) {
     const newComment = await res.json();
@@ -53,8 +53,8 @@ export const deleteComment = id => async dispatch => {
     method: 'DELETE',
   });
   if (res.ok) {
-    const deletedComment = await res.json();
-    dispatch(removeComment(deletedComment));
+    const commentToDelete = await res.json();
+    dispatch(removeComment(commentToDelete));
   }
 }
 
@@ -85,13 +85,11 @@ const commentsReducer = (state = {}, action) => {
     case ADD_COMMENT: {
       const newState = {...state}
       newState[action.comment.id] = action.comment
-
       return newState;
     }
     case REMOVE_COMMENT: {
-      newState = {...state}
+      // newState = {...state}
       delete newState[action.comment.id]
-
       return newState;
     }
     // case UPDATE_COMMENT: {

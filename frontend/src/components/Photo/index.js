@@ -30,7 +30,7 @@ function Photo() {
     return null;
   }
 
-  if (sessionUser.id === photo?.User?.id) {
+  if (sessionUser.id === photo.User.id) {
     return (
       <div className='photo-page-container'>
         <div className='single-photo-container'>
@@ -41,7 +41,7 @@ function Photo() {
         <div className='photo-details'>
           <h3 id='photo-title'>{photo.title}</h3>
           <p id='photo-caption'>{photo.caption}</p>
-          <a id='photographer' href={`/profile/${photo.User.id}`}>by {photo.User?.username}</a>
+          <a id='photographer' href={`/profile/${photo.User.id}`}>by {photo.User.username}</a>
         </div>
         <EditPhotoModal />
         <div>
@@ -59,7 +59,7 @@ function Photo() {
       <div className='photo-details'>
         <h3 id='photo-title'>{photo.title}</h3>
         <p id='photo-caption'>{photo.caption}</p>
-        <a id='photographer' href={`/profile/${photo.User.id}`}>by {photo.User?.username}</a>
+        <a id='photographer' href={`/profile/${photo.User.id}`}>by {photo.User.username}</a>
       </div>
       <div>
         <Comments />
