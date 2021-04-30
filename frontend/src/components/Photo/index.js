@@ -30,7 +30,7 @@ function Photo() {
     return null;
   }
 
-  if (sessionUser.id === photo.User.id) {
+  if (sessionUser.id === photo?.User.id) {
     return (
       <div className='photo-page-container'>
         <div className='single-photo-container'>

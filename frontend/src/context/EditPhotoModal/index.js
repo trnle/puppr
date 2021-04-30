@@ -15,7 +15,7 @@ function EditPhotoModal() {
   const photo = useSelector(state => state.photos[id])
 
   const [title, setTitle] = useState(photo.title);
-  const [caption, setCaption] = useState(photo.caption);
+  const [caption, setCaption] = useState(photo.caption || '');
   
   const handleSubmit = async e => {
     e.preventDefault();

@@ -10,7 +10,6 @@ function Profile() {
   const dispatch = useDispatch();
 
   const userPhotos = useSelector(state => state.photos)
-  console.log(userPhotos)
   // const userPhotos = userData.Photos;
   // const userAlbums = userData.Albums;
   // console.log("photos", userPhotos);

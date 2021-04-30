@@ -31,6 +31,7 @@ router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   return res.json(newPhoto);
 }))
 
+// delete specific photo
 router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const { id } = req.params;
   const deletePhoto = await Photo.findByPk(id);
