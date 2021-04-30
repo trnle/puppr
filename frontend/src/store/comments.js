@@ -52,7 +52,6 @@ export const deleteComment = id => async dispatch => {
     method: 'DELETE',
   });
   if (res.ok) {
-    // const commentToDelete = await res.json();
     dispatch(removeComment(id));
   }
 }
