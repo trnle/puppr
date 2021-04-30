@@ -32,8 +32,10 @@ function Explore() {
           <div key={photo.id} className='photo-container'>
             <a href={`/photos/${photo.id}`}>
               <img className='photo' src={photo.imgURL} alt={photo.title} />
-              <p>{photo.title}</p>
-              <p>by {photo.User?.username}</p>
+              <div className='text-display'>
+                <p id='explore-photo-title'>{photo.title}</p>
+                <p id='explore-photo-user'>by {photo.User?.username}</p>
+              </div>
             </a>
           </div>
         )

@@ -5,10 +5,55 @@
   padding: 100px;
 }
 
+.photo-container {
+  position: relative;
+}
+
 .photo {
   display: flex;
   width: 200px;
   height: 200px;
   object-fit: cover;
   padding: 10px;
+  /* position: relative; */
 }
+
+.photo:hover {
+  cursor: point;
+}
+
+#explore-photo-title {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #2121244f;
+  color: #fff;
+  visibility: hidden;
+  width: 100%;
+
+}
+
+#explore-photo-title, #explore-photo-user {
+  text-decoration: none;
+}
+
+.photo-container:hover #explore-photo-title{
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* .photo:hover .text-display {
+  background: rgba(0, 0, 0, 0.5);   
+  color: black;
+} */
+/* .hide {
+  display: none;
+}
+
+.hide:hover {
+  display: block;
+  color: black;
+} */
