@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import './LoginForm.css';
 import pupprIcon from '../../images/puppr-icon.png';
 
 function LoginFormPage() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
@@ -24,6 +25,11 @@ function LoginFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
+  }
+
+  const navSignup = e => {
+    e.preventDefault();
+    history.push('/signup');
   }
 
   const FloatLabel = (() => {
@@ -102,7 +108,7 @@ function LoginFormPage() {
         <div className='nav-sign-up'>
           <p>
             Not a Puppr member?
-          <a href="/signup"> Sign up here.</a>
+          <a href="/signup" onClick={navSignup}> Sign up here.</a>
           </p>
         </div>
       </div>

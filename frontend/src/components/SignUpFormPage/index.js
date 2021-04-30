@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignUpForm.css';
 import pupprIcon from '../../images/puppr-icon.png';
 
 function SignUpFormPage() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -29,6 +30,11 @@ function SignUpFormPage() {
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
+
+  const navLogin = e => {
+    e.preventDefault();
+    history.push('/login');
+  }
 
   const FloatLabel = (() => {
     // add active class
@@ -140,7 +146,7 @@ function SignUpFormPage() {
         <div className='nav-login'>
           <p>
             Already a Puppr member?
-            <a href="/login"> Log in here.</a>
+            <a href="/login" onClick={navLogin}> Log in here.</a>
           </p>
         </div>
       </div>

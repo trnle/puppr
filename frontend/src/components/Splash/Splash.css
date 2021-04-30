@@ -7,12 +7,15 @@
 .splash-page {
   background-image: url('../../images/splash-background.jpg');
   background-size: cover;
-  min-width: 100%;
-  min-height: 100%;
-  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+  position: fixed;
 }
 
 .intro-text {
+  font-family: 'Helvetica Neue';
   color: black;
   text-align: center;
   vertical-align: middle;

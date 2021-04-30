@@ -11,9 +11,6 @@ function Splash() {
   if (!sessionUser) {
     return (
       <div className='splash-page'>
-        <div className='photo-test'>
-          {/* <img src={splashBackground} alt="" width='100%'/> */}
-        </div>
         <div className='intro-text'>
           <h1>Find your happiness.</h1>
           <h2>Join the Puppr community, home to tens of billions of photos of dogs.</h2>
