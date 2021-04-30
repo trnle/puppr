@@ -59,7 +59,6 @@ export const uploadPhoto = data => async dispatch => {
 
   if (res.ok) {
     const photo = await res.json();
-    // console.log('add photo', photo)
     dispatch(addOnePhoto(photo));
     return photo;
   }

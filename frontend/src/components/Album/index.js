@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAlbums } from '../../store/albums';
 
@@ -14,7 +14,7 @@ function Albums() {
 
   useEffect(() => {
     dispatch(getUserAlbums(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <div>
