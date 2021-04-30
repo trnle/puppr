@@ -85,8 +85,7 @@ export const deleteUserPhoto = id => async dispatch => {
     method: 'DELETE',
   });
   if (res.ok) {
-    const deletedPhoto = await res.json();
-    dispatch(deletePhoto(deletedPhoto))
+    dispatch(deletePhoto(id));
   }
 }
 
@@ -115,22 +114,6 @@ const photosReducer = (state = {}, action) => {
       const newState = {...state}
       newState[action.photo.id] = action.photo
       return newState;
-      // if (!state[action.photo.id]) {
-      //   const newState = {
-      //     ...state,
-      //     [action.photo.id]: action.photo
-      //   };
-      //   const photoList = newState.map(id => newState[id]);
-      //   photoList.push(action.photo);
-      //   return newState;
-      // }
-      // return {
-      //   ...state,
-      //   [action.photo.id]: {
-      //     ...state[action.photo.id],
-      //     ...action.photo,
-      //   }
-      // };
     }
     case UPDATE_PHOTO: {
       newState = {
@@ -140,9 +123,9 @@ const photosReducer = (state = {}, action) => {
       return newState;
     }
     case DELETE_PHOTO: {
-      // newState = { ...state }
-      // delete newState[action.photo]
-      return {}
+      newState = { ...state }
+      delete newState[action.photo]
+      return newState;
     }
     default:
       return state;

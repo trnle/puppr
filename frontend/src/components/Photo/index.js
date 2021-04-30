@@ -30,27 +30,6 @@ function Photo() {
     return null;
   }
 
-  // if (sessionUser.id === photo?.User.id) {
-  //   return (
-  //     <div className='photo-page-container'>
-  //       <div className='single-photo-container'>
-  //         <img src={photo.imgURL} alt={photo.title} width='40%' height='40%' />
-  //       </div>
-  //       <div className='details-comments'>
-  //         <div className='photo-details'>
-  //           <a id='photographer' href={`/profile/${photo.User.id}`}>{photo.User.username}</a>
-  //           <p id='photo-title'>{photo.title}</p>
-  //           <p id='photo-caption'>{photo.caption}</p>
-  //           <EditPhotoModal />
-  //         </div>
-  //         <div className='tags-container'>Tags Coming Soon</div>
-  //         <Comments />
-  //       </div>
-
-  //     </div>
-  //   )
-  // }
-
   return (
     <div className='photo-page-container'>
       <div className='single-photo-container'>
@@ -58,11 +37,11 @@ function Photo() {
       </div>
       <div className='details-comments'>
         <div className='photo-details'>
-          <a id='photographer' href={`/profile/${photo.User.id}`}>{photo.User.username}</a>
-          <button className='follow-btn'>Follow</button>
+          <a id='photographer' href={`/profile/${photo.User?.id}`}>{photo.User?.username}</a>
+          {sessionUser.id !== photo.User?.id && <button className='follow-btn'>Follow</button>}
           <p id='photo-title'>{photo.title}</p>
           <p id='photo-caption'>{photo.caption}</p>
-          {sessionUser.id === photo?.User.id && <EditPhotoModal />}
+          {sessionUser.id === photo.User?.id && <EditPhotoModal />}
         </div>
         <div className='tags-container'>Tags Coming Soon</div>
         <Comments />

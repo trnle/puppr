@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Modal } from '../../context/Modal';
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Redirect } from 'react-router-dom';
-import { uploadPhoto } from '../../store/photos';
+import { useHistory, Redirect, useParams } from 'react-router-dom';
+import { uploadPhoto, getOnePhoto } from '../../store/photos';
 
 import './UploadPhotoModal.css';
 
 
 function UploadPhotoModal({ user }) {
   const sessionUser = useSelector(state => state.session.user);
+  const {id} = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
@@ -24,11 +25,9 @@ function UploadPhotoModal({ user }) {
       imgURL,
       userId: sessionUser.id
     }
-
     dispatch(uploadPhoto(uploadedPhoto))
-    console.log('uploaded', uploadedPhoto);
     setShowModal(false);
-    history.push(`/photos/${uploadedPhoto.id}`)
+    history.push(`/photos/${id}`)
   }
 
   return (

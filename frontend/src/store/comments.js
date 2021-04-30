@@ -52,8 +52,8 @@ export const deleteComment = id => async dispatch => {
     method: 'DELETE',
   });
   if (res.ok) {
-    const commentToDelete = await res.json();
-    dispatch(removeComment(commentToDelete));
+    // const commentToDelete = await res.json();
+    dispatch(removeComment(id));
   }
 }
 
@@ -88,7 +88,7 @@ const commentsReducer = (state = {}, action) => {
     }
     case REMOVE_COMMENT: {
       newState = {...state}
-      delete newState[action.comment.id]
+      delete newState[action.comment]
       return newState;
     }
     // case UPDATE_COMMENT: {
