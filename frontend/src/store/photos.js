@@ -44,7 +44,7 @@ export const getOnePhoto = id => async dispatch => {
   const res = await csrfFetch(`/api/photos/${id}`)
   if (res.ok) {
     const photo = await res.json();
-    dispatch(loadOnePhoto(Object.values(photo)));
+    dispatch(loadOnePhoto(photo));
   }
 }
 
@@ -65,7 +65,7 @@ export const uploadPhoto = data => async dispatch => {
 }
 
 export const updateUserPhoto = photo => async dispatch => {
-  const res = await csrfFetch(`/api/photos/${photo[0]}`, {
+  const res = await csrfFetch(`/api/photos/${photo.id}`, {
     method: 'PUT',
     body: JSON.stringify(photo),
     headers: {
@@ -74,6 +74,7 @@ export const updateUserPhoto = photo => async dispatch => {
   });
   if (res.ok) {
     const updatedPhoto = await res.json();
+    console.log('hello',updatedPhoto);
     dispatch(updatePhoto(updatedPhoto));
     return updatedPhoto;
   }
@@ -106,11 +107,13 @@ const photosReducer = (state = {}, action) => {
       return newState;
     }
     case LOAD_ONE_PHOTO: {
-      let id = 0;
-      action.photo.forEach(data => {
-        newState[id] = data;
-        id++;
-      })
+      console.log('action',action.photo);
+      newState[action.photo.id] = action.photo
+      // let id = 0;
+      // action.photo.forEach(data => {
+      //   newState[id] = data;
+      //   id++;
+      // })
       return newState
     }
     case ADD_ONE_PHOTO: {

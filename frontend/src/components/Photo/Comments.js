@@ -32,13 +32,14 @@ function Comments() {
     }
 
     dispatch(createComment(comment));
+
+    setNewComment('');
   }
 
   const handleDelete = async e => {
-    e.preventDefault();
-    console.log('delete',deletedComment);
-    dispatch(deleteComment(deletedComment));
-    // history.push(`/profile/${photo[4]}`);
+    // e.preventDefault();
+    console.log('delete', deletedComment);
+    await dispatch(deleteComment(deletedComment));
   }
 
   if (!sessionUser) {
@@ -47,20 +48,42 @@ function Comments() {
     )
   }
 
-
   if (sessionUser.id === userComments[0]?.userId) {
     return (
-      <div className='comments-container'>
-        {Object.values(userComments).map(comment => (
-          <div key={comment.id}>
-            <p id='username-display'>{comment?.User.username}</p>
-            <p>{comment.body}</p>
-            <form onClick={handleDelete}>
-              <button onClick={e => setDeletedComment(comment.id)}>X</button>
+      <div className='photos-comments-tags'>
+        <div className='comments-container'>
+          {Object.values(userComments).map(comment => (
+            <div key={comment.id}>
+              <p id='username-display'>{comment?.User.username}</p>
+              <p>{comment.body}</p>
+              <form onSubmit={handleDelete}>
+                <button type='submit' onClick={e => setDeletedComment(comment?.id)}>X</button>
+              </form>
+            </div>
+          ))}
+          {Object.values(otherComments).map(comment => (
+            <div key={comment.id}>
+              <p id='username-display'>{comment.User.username}</p>
+              <p>{comment.body}</p>
+            </div>
+          ))}
+          <div>
+            <form onSubmit={addUserComment}>
+              <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="30" rows="10" required></textarea>
+              <button>Comment</button>
             </form>
           </div>
-        ))}
-        {Object.values(otherComments).map(comment => (
+        </div>
+        <div className='tags-container'>Tags Coming Soon</div>
+      </div>
+
+    )
+  }
+
+  return (
+    <div className='photos-comments-tags'>
+      <div className='comments-container'>
+        {Object.values(comments).map(comment => (
           <div key={comment.id}>
             <p id='username-display'>{comment.User.username}</p>
             <p>{comment.body}</p>
@@ -73,23 +96,7 @@ function Comments() {
           </form>
         </div>
       </div>
-    )
-  }
-
-  return (
-    <div className='comments-container'>
-      {Object.values(comments).map(comment => (
-        <div key={comment.id}>
-          <p id='username-display'>{comment.User.username}</p>
-          <p>{comment.body}</p>
-        </div>
-      ))}
-      <div>
-        <form onSubmit={addUserComment}>
-          <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="30" rows="10" required></textarea>
-          <button>Comment</button>
-        </form>
-      </div>
+      <div className='tags-container'>Tags Coming Soon</div>
     </div>
   )
 }

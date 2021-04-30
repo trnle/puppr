@@ -1,21 +1,39 @@
 .photo-page-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  
 }
 
 .single-photo-container {
-  justify-content: center;
   padding: 100px;
   background-color: #212124;
 }
 
-#photo-title, #photo-caption, #photographer {
-  color: white;
+#single-photo {
+  display: flex;
+  justify-content: center;
+}
+
+
+.photo-details {
+  padding: 10px 100px 100px 100px;
+  color: black;
+}
+
+.photos-comments-tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  'comments tags';
+  padding: 10px 100px 100px 100px;
 }
 
 .comments-container {
-  justify-content: center;
+  grid-area: 'comments';
+  align-items: flex-end;
+}
+
+.tags-container {
+  grid-area: 'tags'
 }
 
 p {

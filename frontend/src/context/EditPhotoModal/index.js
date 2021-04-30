@@ -12,30 +12,32 @@ function EditPhotoModal() {
   const {id} = useParams();
 
   const history = useHistory();
-  const photo = useSelector(state => state.photos)
+  const photo = useSelector(state => state.photos[id])
 
-  const [title, setTitle] = useState(photo[1]);
-  const [caption, setCaption] = useState(photo[2]);
+  const [title, setTitle] = useState(photo.title);
+  const [caption, setCaption] = useState(photo.caption);
 
   const handleSubmit = async e => {
+    e.preventDefault();
     const updatePhoto = {
       ...photo,
       title,
       caption
     }
-    await dispatch(updateUserPhoto(updatePhoto))
+    dispatch(updateUserPhoto(updatePhoto))
+    setShowModal(false);
   }
 
   const handleDelete = async e => {
     // e.preventDefault();
     await dispatch(deleteUserPhoto(id))
-    history.push(`/profile/${photo[4]}`);
+    history.push(`/profile/${photo.User.id}`);
   }
 
 
   return (
     <div className='modal'>
-      <button onClick={() => setShowModal(true)}>Edit</button>
+      <button id='photo-edit-btn' onClick={() => setShowModal(true)}>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           {/* <EditPhotoForm /> */}
@@ -45,7 +47,7 @@ function EditPhotoModal() {
               <input type="text" value={title} placeholder='Title' onChange={e => setTitle(e.target.value)} required />
               <input type="text" value={caption} placeholder='Caption' onChange={e => setCaption(e.target.value)} />
               <button type='submit'>Save</button>
-              <button onClick={handleDelete}>Delete</button>
+              <button className="fas fa-trash" onClick={handleDelete}></button>
             </form>
             <button onClick={() => setShowModal(false)}>Cancel</button>
           </div>

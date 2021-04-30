@@ -12,7 +12,7 @@ function Photo() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const { id } = useParams();
-  const photo = useSelector(state => state.photos);
+  const photo = useSelector(state => state.photos[id]);
   const comments = useSelector(state => state.comments);
   console.log('test', comments);
   useEffect(() => {
@@ -26,18 +26,24 @@ function Photo() {
     )
   }
 
-  if (sessionUser.id === photo[7]?.id) {
+  if (!sessionUser || !photo) {
+    return null;
+  }
+
+  if (sessionUser.id === photo?.User?.id) {
     return (
       <div className='photo-page-container'>
         <div className='single-photo-container'>
-          <img src={photo[3]} alt={photo[1]} width='40%' height='40%' />
-          <div className='photo-details'>
-            <h3 id='photo-title'>{photo[1]}</h3>
-            <p id='photo-caption'>{photo[2]}</p>
-            <a id='photographer' href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
+          <div id='single-photo'>
+            <img src={photo.imgURL} alt={photo.title} width='40%' height='40%' />
           </div>
-          <EditPhotoModal />
         </div>
+        <div className='photo-details'>
+          <h3 id='photo-title'>{photo.title}</h3>
+          <p id='photo-caption'>{photo.caption}</p>
+          <a id='photographer' href={`/profile/${photo.User.id}`}>by {photo.User?.username}</a>
+        </div>
+        <EditPhotoModal />
         <div>
           <Comments />
         </div>
@@ -48,12 +54,12 @@ function Photo() {
   return (
     <div className='photo-page-container'>
       <div className='single-photo-container'>
-        <img src={photo[3]} alt={photo[1]} width='40%' height='40%' />
-        <div className='photo-details'>
-          <h3>{photo[1]}</h3>
-          <p>{photo[2]}</p>
-          <a href={`/profile/${photo[4]}`}>by {photo[7]?.username}</a>
-        </div>
+        <img src={photo.imgURL} alt={photo.title} width='40%' height='40%' />
+      </div>
+      <div className='photo-details'>
+        <h3 id='photo-title'>{photo.title}</h3>
+        <p id='photo-caption'>{photo.caption}</p>
+        <a id='photographer' href={`/profile/${photo.User.id}`}>by {photo.User?.username}</a>
       </div>
       <div>
         <Comments />

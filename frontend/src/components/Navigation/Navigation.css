@@ -1,12 +1,12 @@
 .nav-container {
   width: 100%;
   height: 50px;
-  background-color: #212124;
+  background-color: #18181b;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  position: sticky;
+  position: fixed;
 }
 
 .nav-link {
