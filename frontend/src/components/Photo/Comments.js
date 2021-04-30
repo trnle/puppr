@@ -70,12 +70,11 @@ function Comments() {
           ))}
           <div>
             <form onSubmit={addUserComment}>
-              <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="30" rows="10" required></textarea>
+              <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="53" rows="7" required></textarea>
               <button>Comment</button>
             </form>
           </div>
         </div>
-        <div className='tags-container'>Tags Coming Soon</div>
       </div>
 
     )
@@ -92,12 +91,11 @@ function Comments() {
         ))}
         <div>
           <form onSubmit={addUserComment}>
-            <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="30" rows="10" required></textarea>
+            <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="53" rows="7" required></textarea>
             <button>Comment</button>
           </form>
         </div>
       </div>
-      <div className='tags-container'>Tags Coming Soon</div>
     </div>
   )
 }
