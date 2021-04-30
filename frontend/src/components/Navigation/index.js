@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import UploadPhotoModal from '../../context/UploadPhotoModal';
@@ -9,12 +9,23 @@ import './Navigation.css';
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
+  const history = useHistory();
+  const navExplore = e => {
+    e.preventDefault();
+    history.push('/explore');
+  }
+
+  const navHome = e => {
+    e.preventDefault();
+    history.push('/');
+  }
+  
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <>
         <div id='puppr-logo'>
-          <a href="/explore">
+          <a href="/explore" onClick={navExplore}>
             <h2>puppr</h2>
           </a>
         </div>
@@ -31,7 +42,7 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <div id='puppr-logo'>
-          <a href="/">
+          <a href="/" onClick={navHome}>
             <h2>puppr</h2>
           </a>
         </div>
