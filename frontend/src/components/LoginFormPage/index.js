@@ -3,7 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
-import pupprIcon from '../puppr-icon.png'
+import pupprIcon from '../../images/puppr-icon.png';
 
 function LoginFormPage() {
   const dispatch = useDispatch();

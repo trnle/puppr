@@ -1,3 +1,30 @@
+/* body {
+  background-image: url('../../images/splash-background.jpg');
+  background-size: cover;
+  background-position: inherit;
+} */
+
+.splash-page {
+  background-image: url('../../images/splash-background.jpg');
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
 .intro-text {
   color: black;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 270px;
+}
+
+.intro-text h1 {
+  font-size: 56px;
+  margin: 0;
+}
+
+.intro-text h2 {
+  font-size: 26px;
+  margin: 15px;
 }

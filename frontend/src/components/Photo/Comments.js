@@ -35,7 +35,7 @@ function Comments() {
 
     setNewComment('');
   }
-
+  
   const handleDelete = async e => {
     e.preventDefault();
 
@@ -53,6 +53,12 @@ function Comments() {
     return (
       <div className='photos-comments-tags'>
         <div className='comments-container'>
+          {Object.values(otherComments).map(comment => (
+            <div key={comment.id}>
+              <p id='username-display'>{comment.User.username}</p>
+              <p>{comment.body}</p>
+            </div>
+          ))}
           {Object.values(userComments).map(comment => (
             <div key={comment.id}>
               <p id='username-display'>{comment.User.username}</p>
@@ -60,12 +66,6 @@ function Comments() {
               <form onSubmit={handleDelete}>
                 <button type='submit' onClick={e => setDeletedCommentId(comment.id)}>X</button>
               </form>
-            </div>
-          ))}
-          {Object.values(otherComments).map(comment => (
-            <div key={comment.id}>
-              <p id='username-display'>{comment.User.username}</p>
-              <p>{comment.body}</p>
             </div>
           ))}
           <div>

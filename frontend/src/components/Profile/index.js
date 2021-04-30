@@ -27,7 +27,7 @@ function Profile() {
       <div>
         <h3>profile page</h3>
         <a href={`/profile`}>Photostream</a>
-        <a href={`/profile/${sessionUser.id}/albums`}>Albums</a>
+        <a href={`/profile/${id}/albums`}>Albums</a>
       </div>
       <div className='user-photos'>
         {Object.values(userPhotos).map(photo => {

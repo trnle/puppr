@@ -1,3 +1,7 @@
+/* body {
+  background-image: none;
+} */
+
 .explore-gallery {
   display: flex;
   flex-wrap: wrap;

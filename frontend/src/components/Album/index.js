@@ -3,7 +3,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAlbums } from '../../store/albums';
 
-import './Albums.css'
+import './Album.css'
 
 function Albums() {
   const sessionUser = useSelector(state => state.session.user);
@@ -14,29 +14,27 @@ function Albums() {
 
   useEffect(() => {
     dispatch(getUserAlbums(id));
-  }, [dispatch, id]);
+  }, [dispatch]);
 
-  if (!sessionUser) {
-    return(
-      <Redirect to='/login' />
-    )
-  }
-  
   return (
     <div>
       <div>
         <h3>Album page</h3>
-        <a href={`/profile/${id}`}>Photostream</a>
-        <a href={`/profile/${id}/albums`}>Albums</a>
+        <a href={`/profile/${sessionUser.id}`}>Photostream</a>
+        <a href={`/profile/${sessionUser.id}/albums`}>Albums</a>
       </div>
       {Object.values(userAlbums).map(album => {
-        return(
+        return (
           <div key={album.id}>
-            <a href={`/profile/${album.userId}/albums/${album.id}`}>
-              <img src={album.Photos[0].imgURL} alt={album.name} width='40%' height='40%'/>
-            </a>
-            {/* {console.log(album.Photos[0].imgURL)} */}
-            
+            {console.log('testing album',album)}
+            {album.Photos.map(photo => {
+              return(
+                <div key={photo.id}>
+                  <img src={photo.imgURL} alt="" width='40%' height='40%'/>
+                </div>
+              )
+            })}
+           
           </div>
         )
       })}

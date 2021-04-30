@@ -27,8 +27,10 @@ function UploadPhotoModal({ user }) {
     }
     dispatch(uploadPhoto(uploadedPhoto))
     setShowModal(false);
-    history.push(`/photos/${id}`)
+    // history.push(`/profile`)
   }
+
+
 
   return (
     <div className='modal'>
