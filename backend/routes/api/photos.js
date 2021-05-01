@@ -7,7 +7,7 @@ const router = express.Router();
 
 // show all photos in db
 router.get('', asyncHandler(async (req, res) => {
-  const photos = await Photo.findAll({ include: User, limit: 10 })
+  const photos = await Photo.findAll({ include: User })
   return res.json(photos);
 }))
 

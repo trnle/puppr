@@ -3,3 +3,11 @@ body {
   margin: 0;
   font-family: 'Helvetica Neue';
 }
+
+button {
+  background-color: #9dad7f;
+  color: white;
+  border: 1px solid #9dad7f;
+  padding: 5px 10px;
+  border-radius: 6px;
+}

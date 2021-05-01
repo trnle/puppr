@@ -25,3 +25,18 @@
   width: 100%; 
   height: auto;
 }
+
+.profile-nav {
+  background-color: #55717498;
+  width: 100%;
+  text-align: center;
+  padding: 65px 0 20px 0;
+}
+
+.profile-nav a {
+  margin: 20px;
+}
+
+.profile-nav a:hover {
+  color: white;
+}

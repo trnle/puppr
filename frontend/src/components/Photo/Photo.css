@@ -31,8 +31,8 @@
 
 .follow-btn {
   display: inline-block;
-  margin-left: 360px;
-  position: static;
+  margin-left: 335px;
+  position: absolute;
 }
 
 
@@ -55,6 +55,11 @@ p {
 }
 
 
-#username-display {
+.username-display {
   font-weight: bold;
+  margin: 20px 0 5px 0;
+}
+
+.user-comment {
+  margin: 0;
 }

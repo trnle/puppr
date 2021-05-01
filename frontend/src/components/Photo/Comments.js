@@ -70,31 +70,30 @@ function Comments() {
         <div className='comments-container'>
           {Object.values(otherComments).map(comment => (
             <div key={comment.id}>
-              <p id='username-display'>{comment.User.username}</p>
-              <p>{comment.body}</p>
+              <p className='username-display'>{comment.User.username}</p>
+              <p className='user-comment'>{comment.body}</p>
             </div>
           ))}
           {Object.values(userComments).map((comment, i) => (
-            <div key={i}>
-              <p id='username-display'>{comment.User?.username}</p>
-              <p>{comment.body}</p>
+            <div key={i} className='edit-form'>
+              <p className='username-display'>{comment.User?.username}</p>
+              <p className='user-comment'>{comment.body}</p>
               {currentComment === i && 
                 <form onSubmit={handleSaveEdit}>
                   <input type='text' value={body} onChange={e => setBody(e.target.value)} />
-                  <button>Save</button>
+                  <button id='save-btn'>Save</button>
                 </form>
               }
-              <button onClick={() => handleEdit(i)}>Edit</button>
-
+              <button id='edit-btn' onClick={() => handleEdit(i)}>Edit</button>
               <form onSubmit={handleDelete}>
-                <button type='submit' onClick={e => setDeletedCommentId(comment.id)}>X</button>
+                <button id='delete-btn' type='submit' onClick={e => setDeletedCommentId(comment.id)}>X</button>
               </form>
             </div>
           ))}
           <div>
             <form onSubmit={addUserComment}>
               <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="53" rows="7" required></textarea>
-              <button>Comment</button>
+              <button id='comment-btn'>Comment</button>
             </form>
           </div>
         </div>
@@ -108,14 +107,14 @@ function Comments() {
       <div className='comments-container'>
         {Object.values(comments).map(comment => (
           <div key={comment.id}>
-            <p id='username-display'>{comment.User.username}</p>
-            <p>{comment.body}</p>
+            <p className='username-display'>{comment.User.username}</p>
+            <p className='user-comment'>{comment.body}</p>
           </div>
         ))}
         <div>
           <form onSubmit={addUserComment}>
             <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="53" rows="7" required></textarea>
-            <button>Comment</button>
+            <button id='comment-btn'>Comment</button>
           </form>
         </div>
       </div>

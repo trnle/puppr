@@ -18,7 +18,7 @@ function Profile() {
 
   const navPhotostream = e => {
     e.preventDefault();
-    history.push(`/profile`);
+    history.push(`/profile/${id}`);
   }
 
   const navAlbums = e => {
@@ -36,7 +36,6 @@ function Profile() {
   return (
     <div className='profile-photostream'>
       <div className='profile-nav'>
-        <h3>profile page</h3>
         <a href={`/profile`} onClick={navPhotostream}>Photostream</a>
         <a href={`/profile/${id}/albums`} onClick={navAlbums}>Albums</a>
       </div>
