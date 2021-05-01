@@ -35,6 +35,11 @@
   position: absolute;
 }
 
+.follow-btn:hover, #edit-btn:hover, #save-btn:hover, #delete-btn:hover, #comment-btn:hover{
+  background-color: #212124;
+  color: white;
+}
+
 
 .photos-comments-tags {
   padding: 0 40px 80px 230px;

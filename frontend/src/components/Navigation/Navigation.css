@@ -40,6 +40,11 @@
   color: #9dad7f;
 }
 
+.nav-link-2:hover {
+  background-color: #9dad7f;
+  color: white
+}
+
 #profile-btn, #upload-btn {
   background: none;
   border: none;

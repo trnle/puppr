@@ -60,7 +60,7 @@
 
 #signup-btn {
   color: white;
-  background-color: #128fdc;
+  background-color: #9dad7f;;
   border-radius: 5px;
   width: 100%;
   padding: 10px 24px;
@@ -70,6 +70,11 @@
   font-size: 15px;
 }
 
+#signup-btn:hover {
+  background-color: #212124;
+  color: white;
+}
+
 .nav-login p {
   font-size: 14px;
   margin-top: 14px;
@@ -77,7 +82,7 @@
 
 .nav-login a {
   text-decoration: none;
-  color: #128fdc;
+  color: #9dad7f;;
 }
 
 /* Errors display */

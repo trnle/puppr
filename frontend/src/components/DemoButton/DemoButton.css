@@ -6,7 +6,7 @@
 
 #demo-btn {
   color: white;
-  background-color: #128fdc;
+  background-color: #9dad7f;;
   border-radius: 5px;
   width: 100%;
   padding: 10px 24px;
@@ -14,5 +14,9 @@
   border: none;
   font-weight: bold;
   font-size: 15px;
-  
+}
+
+#demo-btn:hover {
+  background-color: white;
+  color: black;
 }

@@ -7,7 +7,7 @@ body {
 button {
   background-color: #9dad7f;
   color: white;
-  border: 1px solid #9dad7f;
+  border: none;
   padding: 5px 10px;
-  border-radius: 6px;
+  border-radius: 5px;
 }
