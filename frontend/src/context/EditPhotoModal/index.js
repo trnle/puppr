@@ -46,10 +46,10 @@ function EditPhotoModal() {
               <h3>Edit Photo</h3>
               <input type="text" value={title} placeholder='Title' onChange={e => setTitle(e.target.value)} required />
               <input type="text" value={caption} placeholder='Caption' onChange={e => setCaption(e.target.value)} />
-              <button type='submit'>Save</button>
-              <button className="fas fa-trash" onClick={handleDelete}></button>
+              <button className='save-info-btn' type='submit'>Save</button>
+              <button className="fas fa-trash delete-photo-btn" onClick={handleDelete}></button>
             </form>
-            <button onClick={() => setShowModal(false)}>Cancel</button>
+            <button className='cancel-change-btn' onClick={() => setShowModal(false)}>Cancel</button>
           </div>
         </Modal>
       )}

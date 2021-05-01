@@ -1,15 +1,21 @@
 .form-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 330px;
   padding: 50px;
+}
+
+.form-container h3 {
+  text-align: center;
+  margin-top: 0;
 }
 
 .form-container input {
   display: flex;
   flex-direction: column;
   padding: 8px;
-  margin: 6px;
+  margin: 6px 0;
+  width: 93%;
 }
 
 #edit-btn {
@@ -25,4 +31,22 @@
 #edit-btn:hover {
   background-color: #212124;
   color: white;
+}
+
+.cancel-change-btn, .delete-photo-btn, .save-info-btn {
+  background-color: #c0bebe;
+  margin-bottom: 5px;
+}
+
+.save-info-btn {
+  width: 75%;
+}
+
+.delete-photo-btn {
+  width: 23%;
+  margin-left: 5px;
+}
+
+.cancel-change-btn:hover, .delete-photo-btn:hover, .save-info-btn:hover {
+  background-color: #212124;
 }
