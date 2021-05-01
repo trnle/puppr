@@ -1,0 +1,34 @@
+.upload-form-container {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  padding: 50px;
+}
+
+.upload-form-container h3 {
+  text-align: center;
+  margin-top: 0;
+}
+
+
+.upload-form-container input {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  margin: 6px 0;
+  width: 93%;
+}
+
+#submit-photo-btn {
+  margin-top: 9px;
+}
+
+#submit-photo-btn, #cancel-photo-btn {
+  background-color: #c0bebe;
+  margin-bottom: 5px;
+}
+
+#submit-photo-btn:hover, #cancel-photo-btn:hover {
+  background-color: #212124;
+  color: white;
+}
