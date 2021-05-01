@@ -1,5 +1,5 @@
 .single-photo-container {
-  padding: 100px 40px 55px 0;
+  padding: 100px 40px 55px 40px;
   background-color: #212124;
 }
 
@@ -21,25 +21,56 @@
 
 .photo-details {
   grid-area: 'details';
-  padding: 20px 40px 8px 230px;
-  margin: 0;
+  padding: 20px 40px 0 230px;
 }
 
-.photo-details h3, .photo-details p, .photo-details a {
+#photo-title, #photo-caption {
+  margin-top: 5px;
+}
+
+#photographer {
+  font-weight: bold;
+  color: #9dad7f;
+  font-size: 22px;
+}
+
+#photographer:hover {
+  color: #c0bebe;
+  transition-duration: 0.3s;
+}
+
+#photo-title {
+  font-weight: bold;
+  font-size: 17px;
   margin: 0;
 }
 
 .follow-btn {
   display: inline-block;
-  margin-left: 335px;
+  margin-left: 330px;
   position: absolute;
+  font-weight: bold;
+  padding: 6px 15px;
 }
 
-.follow-btn:hover, #edit-btn:hover, #save-btn:hover, #delete-btn:hover, #comment-btn:hover{
+
+
+.user-comment-container {
+  margin-top: 12px;
+}
+
+#comment-btn {
+  font-weight: bold;
+  width: 100%;
+  margin-top: 3px;
+  padding: 9px; 
+}
+
+.follow-btn:hover,  #save-btn:hover, #comment-btn:hover{
   background-color: #212124;
   color: white;
+  transition-duration: 0.3s;
 }
-
 
 .photos-comments-tags {
   padding: 0 40px 80px 230px;
@@ -53,22 +84,53 @@
 .tags-container {
   grid-area: 'tags';
   padding: 20px 40px 80px 0;
+  font-weight: bold;
+  color: #9dad7f;
+  font-size: 15px;
 }
 
 p {
   color: black;
 }
 
-
-.username-display {
+.username-display, .session-username-display {
   font-weight: bold;
-  margin: 20px 0 5px 0;
+  margin: 0;
 }
 
-.user-comment {
-  margin: 0;
+.user-comment, .session-user-comment {
+  font-size: 15px;
+  margin: 5px 0 20px 0;
 }
 
 a p:hover {
   color:#9dad7f;
+}
+
+/* Edit button features */
+#edit-comment-btn, #delete-btn, #save-btn {
+  background-color: #c0bebe;
+}
+
+#edit-comment-btn:hover, #delete-btn:hover {
+  background-color: #212124;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+hr {
+  color: #c0bebe;
+  opacity: 0.4;
+  margin-top: 20px;
+}
+
+hr#comments-hr {
+  color: #c0bebe;
+  opacity: 0.4;
+  margin-top: 30px;
+}
+
+textarea {
+  border-radius: 5px;
+  border-color: #c0bebe;
 }

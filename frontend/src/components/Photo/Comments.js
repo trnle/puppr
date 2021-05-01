@@ -86,22 +86,25 @@ function Comments() {
                 e.preventDefault();
                 history.push(`/profile/${comment.User.id}`)
               }}>
-                <p className='username-display'>{comment.User?.username}</p>
+                <p className='session-username-display'>{comment.User?.username}</p>
               </a>
-              <p className='user-comment'>{comment.body}</p>
-              {currentComment === i &&
-                <form onSubmit={handleSaveEdit}>
-                  <input type='text' value={body} onChange={e => setBody(e.target.value)} />
-                  <button id='save-btn'>Save</button>
-                </form>
-              }
-              <button id='edit-btn' onClick={() => handleEdit(i)}>Edit</button>
-              <form onSubmit={handleDelete}>
-                <button id='delete-btn' type='submit' onClick={e => setDeletedCommentId(comment.id)}>X</button>
-              </form>
+              <p className='session-user-comment'>{comment.body}</p>
+                <div className='form'>
+                  {currentComment === i &&
+                    <form className='input-form' onSubmit={handleSaveEdit}>
+                      <input type='text' value={body} onChange={e => setBody(e.target.value)} />
+                      <button id='save-btn'>Save</button>
+                    </form>
+                  }
+                  <button id='edit-comment-btn' onClick={() => handleEdit(i)}>Edit</button>
+                  <form onSubmit={handleDelete}>
+                    <button id='delete-btn' type='submit' onClick={e => setDeletedCommentId(comment.id)}>X</button>
+                  </form>
+                </div>
             </div>
           ))}
-          <div>
+          <hr id='comments-hr'/>
+          <div className='user-comment-container'>
             <form onSubmit={addUserComment}>
               <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="53" rows="7" required></textarea>
               <button id='comment-btn'>Comment</button>
@@ -127,7 +130,8 @@ function Comments() {
             <p className='user-comment'>{comment.body}</p>
           </div>
         ))}
-        <div>
+        <hr id='comments-hr'/>
+        <div className='user-comment-container'>
           <form onSubmit={addUserComment}>
             <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="53" rows="7" required></textarea>
             <button id='comment-btn'>Comment</button>

@@ -37,7 +37,7 @@ function EditPhotoModal() {
 
   return (
     <div className='modal'>
-      <button id='edit-btn' onClick={() => setShowModal(true)}>Edit</button>
+      <button id='edit-btn' onClick={() => setShowModal(true)}>Edit Photo</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           {/* <EditPhotoForm /> */}

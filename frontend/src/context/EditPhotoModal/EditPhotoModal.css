@@ -11,3 +11,18 @@
   padding: 8px;
   margin: 6px;
 }
+
+#edit-btn {
+  display: inline-block;
+  margin-left: 355px;
+  position: absolute;
+  font-weight: bold;
+  padding: 6px 15px;
+  background-color: #c0bebe;
+  font-size: 12px;
+}
+
+#edit-btn:hover {
+  background-color: #212124;
+  color: white;
+}

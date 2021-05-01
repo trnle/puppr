@@ -9,7 +9,7 @@ import Explore from './components/Explore';
 import Photo from './components/Photo';
 import Profile from './components/Profile';
 import Albums from './components/Albums';
-import Album from './components/Album';
+// import Album from './components/Album';
 import PageNotFound from './components/PageNotFound';
 import * as sessionActions from "./store/session";
 

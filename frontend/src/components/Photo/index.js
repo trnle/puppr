@@ -42,11 +42,12 @@ function Photo() {
       </div>
       <div className='details-comments'>
         <div className='photo-details'>
+          {sessionUser.id === photo.User?.id && <EditPhotoModal />}
           <a id='photographer' href={`/profile/${photo.User?.id}`} onClick={navProfile}>{photo.User?.username}</a>
           {sessionUser.id !== photo.User?.id && <button className='follow-btn'>Follow</button>}
           <p id='photo-title'>{photo.title}</p>
           <p id='photo-caption'>{photo.caption}</p>
-          {sessionUser.id === photo.User?.id && <EditPhotoModal />}
+          <hr/>
         </div>
         <div className='tags-container'>Tags Coming Soon</div>
         <Comments />

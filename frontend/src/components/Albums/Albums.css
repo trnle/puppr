@@ -47,24 +47,5 @@
 
 .nav-profile-album a:hover {
   color: #9dad7f;
+  transition-duration: 0.2s;
 }
-
-/* .profile-albums {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.album-grid-container {
-  columns: 2 150px;
-  column-gap: 1rem;
-  margin: 130px;
-  
-}
-
-.album-cover {
-  object-fit: cover;
-  height: 320px;
-  width: 320px;
-} */

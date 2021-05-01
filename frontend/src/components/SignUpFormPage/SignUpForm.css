@@ -73,6 +73,7 @@
 #signup-btn:hover {
   background-color: #212124;
   color: white;
+  transition-duration: 0.2s;
 }
 
 .nav-login p {
@@ -82,7 +83,12 @@
 
 .nav-login a {
   text-decoration: none;
-  color: #9dad7f;;
+  color: #9dad7f;
+}
+
+.nav-login a:hover {
+  color: #4c533e;
+  transition-duration: 0.2s;
 }
 
 /* Errors display */

@@ -37,12 +37,14 @@
 }
 
 #puppr-logo h2:hover, .nav-link:hover {
-  color: #9dad7f;
+  color: #c7c3c3;
+  transition-duration: 0.2s;
 }
 
 .nav-link-2:hover {
   background-color: #9dad7f;
-  color: white
+  color: white;
+  transition-duration: 0.2s;
 }
 
 #profile-btn, #upload-btn {
@@ -57,7 +59,8 @@
 }
 
 .fa-user-alt:hover, .fa-cloud-upload-alt:hover {
-  color: #9dad7f;
+  color: #c7c3c3;
+  transition-duration: 0.2s;
 }
 
 .dropdown-menu {
@@ -69,7 +72,8 @@
   border-radius: 3px;
   border: 1px solid #212124;
   box-shadow: 0 6px 5px -5px rgba(0,0,0,0.2);
-  margin-top: 13px;
+  margin-top: 9px;
+  margin-right: 200px;
   padding: 12px 0;
 }
 
