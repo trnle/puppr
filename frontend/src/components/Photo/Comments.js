@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { getComments, createComment, updateUserComment, deleteComment } from '../../store/comments';
 
 import './Photo.css'
@@ -8,6 +8,7 @@ import './Photo.css'
 function Comments() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
   const { id } = useParams();
 
   const comments = useSelector(state => state.comments);
@@ -18,7 +19,7 @@ function Comments() {
   const [newComment, setNewComment] = useState('');
   const [currentComment, setCurrentComment] = useState(-1);
   const [deletedCommentId, setDeletedCommentId] = useState('');
-  
+
   const [body, setBody] = useState('');
 
   useEffect(() => {
@@ -37,7 +38,7 @@ function Comments() {
     dispatch(createComment(comment));
     setNewComment('');
   }
-  
+
   const handleDelete = e => {
     e.preventDefault();
     dispatch(deleteComment(deletedCommentId));
@@ -54,7 +55,7 @@ function Comments() {
       userId: sessionUser.id,
       photoId: id
     }
-    console.log('testttting',updateComment);
+    console.log('testttting', updateComment);
     return dispatch(updateUserComment(updateComment));
   }
 
@@ -70,15 +71,25 @@ function Comments() {
         <div className='comments-container'>
           {Object.values(otherComments).map(comment => (
             <div key={comment.id}>
-              <p className='username-display'>{comment.User.username}</p>
+              <a href={`/profile/${comment.User.id}`} onClick={e => {
+                e.preventDefault();
+                history.push(`/profile/${comment.User.id}`)
+              }}>
+                <p className='username-display'>{comment.User.username}</p>
+              </a>
               <p className='user-comment'>{comment.body}</p>
             </div>
           ))}
           {Object.values(userComments).map((comment, i) => (
             <div key={i} className='edit-form'>
-              <p className='username-display'>{comment.User?.username}</p>
+              <a href={`/profile/${comment.User.id}`} onClick={e => {
+                e.preventDefault();
+                history.push(`/profile/${comment.User.id}`)
+              }}>
+                <p className='username-display'>{comment.User?.username}</p>
+              </a>
               <p className='user-comment'>{comment.body}</p>
-              {currentComment === i && 
+              {currentComment === i &&
                 <form onSubmit={handleSaveEdit}>
                   <input type='text' value={body} onChange={e => setBody(e.target.value)} />
                   <button id='save-btn'>Save</button>
@@ -107,7 +118,12 @@ function Comments() {
       <div className='comments-container'>
         {Object.values(comments).map(comment => (
           <div key={comment.id}>
-            <p className='username-display'>{comment.User.username}</p>
+            <a href={`/profile/${comment.User.id}`} onClick={e => {
+              e.preventDefault();
+              history.push(`/profile/${comment.User.id}`)
+            }}>
+              <p className='username-display'>{comment.User.username}</p>
+            </a>
             <p className='user-comment'>{comment.body}</p>
           </div>
         ))}

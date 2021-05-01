@@ -68,3 +68,7 @@ p {
 .user-comment {
   margin: 0;
 }
+
+a p:hover {
+  color:#9dad7f;
+}

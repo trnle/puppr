@@ -6,7 +6,7 @@
 }
 
 .nav-profile-album {
-  background-color: #55717498;
+  background-color: #212124;
   width: 100%;
   text-align: center;
   padding: 65px 0 20px 0;
@@ -39,14 +39,14 @@
   text-align: center;
 }
 
-a {
+.nav-profile-album a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: bold;
 }
 
 .nav-profile-album a:hover {
-  color: white;
+  color: #9dad7f;
 }
 
 /* .profile-albums {

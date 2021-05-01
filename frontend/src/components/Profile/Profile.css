@@ -27,7 +27,7 @@
 }
 
 .profile-nav {
-  background-color: #55717498;
+  background-color: #212124;
   width: 100%;
   text-align: center;
   padding: 65px 0 20px 0;
@@ -35,8 +35,9 @@
 
 .profile-nav a {
   margin: 20px;
+  color: white;
 }
 
 .profile-nav a:hover {
-  color: white;
+  color: #9dad7f;
 }
