@@ -16,11 +16,15 @@
   margin: 20px;
 }
 
+.album-info p {
+  padding: 4px;
+}
+
 .album-photo-container {
-  columns: 3 150px;
+  columns: 2 150px;
   column-gap: 1rem;
-  width: 70%;
-  margin: 130px;
+  width: 55%;
+  margin: 100px 130px 0 130px;
 }
 
 .alb-photo {
@@ -37,15 +41,22 @@
   color: white;
   margin-top: auto;
   text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .nav-profile-album a {
   text-decoration: none;
   color: white;
-  font-weight: bold;
 }
 
 .nav-profile-album a:hover {
   color: #9dad7f;
   transition-duration: 0.2s;
+}
+
+#album-description {
+  text-transform: none;
+  margin: 0;
+  font-size: 14px;
 }

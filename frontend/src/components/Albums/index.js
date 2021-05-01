@@ -41,7 +41,12 @@ function Albums() {
       {Object.values(userAlbums).map(album => {
         return (
           <div key={album.id} className='album-photo-container'>
-            <p>{album.name}</p>
+            <div className='album-info'>
+              <p id='album-title'>
+                {album.name}
+                <p id='album-description'>{album.description}</p>
+              </p>
+            </div>
             {/* {console.log('testing album',album)} */}
             {album.Photos.map(photo => {
               return (
