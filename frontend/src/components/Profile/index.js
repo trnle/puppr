@@ -35,17 +35,17 @@ function Profile() {
 
   return (
     <div className='profile-photostream'>
-      <div>
+      <div className='profile-nav'>
         <h3>profile page</h3>
         <a href={`/profile`} onClick={navPhotostream}>Photostream</a>
         <a href={`/profile/${id}/albums`} onClick={navAlbums}>Albums</a>
       </div>
-      <div className='user-photos'>
+      <div className='grid-container'>
         {Object.values(userPhotos).map(photo => {
           return (
             <div key={photo.id} className='profile-photo-container'>
-              <a className='photo' href={`/photos/${photo.id}`}>
-                <img src={photo.imgURL} alt={photo.title} width='40%' height='40%' />
+              <a href={`/photos/${photo.id}`}>
+                <img className='photo' src={photo.imgURL} alt={photo.title} />
               </a>
             </div>
           )

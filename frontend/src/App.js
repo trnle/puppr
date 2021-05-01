@@ -47,9 +47,9 @@ function App() {
           <Route exact path={`/profile/:id/albums`}>
             <Albums />
           </Route>
-          <Route path={`/profile/:id/albums/:albumId`}>
+          {/* <Route path={`/profile/:id/albums/:albumId`}>
             <Album />
-          </Route>
+          </Route> */}
           <Route path='/'>
             <PageNotFound />
           </Route>

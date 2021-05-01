@@ -27,23 +27,28 @@ function Explore() {
 
   return (
     <div className='explore-gallery'>
-      {Object.values(photos).map(photo => {
-        return (
-          <div key={photo.id} className='photo-container'>
-            <a href={`/photos/${photo.id}`}
-              onClick={e => {
-                e.preventDefault();
-                history.push(`/photos/${photo.id}`)
-              }}>
-              <img className='photo' src={photo.imgURL} alt={photo.title} />
-              <div className='text-display'>
-                <p id='explore-photo-title'>{photo.title}</p>
-                <p id='explore-photo-user'>by {photo.User?.username}</p>
-              </div>
-            </a>
-          </div>
-        )
-      })}
+      <div className='grid-container'>
+        {Object.values(photos).map(photo => {
+          return (
+            <div key={photo.id} className='photo-container'>
+              <a href={`/photos/${photo.id}`}
+                onClick={e => {
+                  e.preventDefault();
+                  history.push(`/photos/${photo.id}`)
+                }}>
+                <div className='photo-box'>
+                  <img className='photo' src={photo.imgURL} alt={photo.title} />
+                  {/* <div className='text-display'>
+                    <p id='explore-photo-title'>{photo.title}</p>
+                    <p id='explore-photo-user'>by {photo.User?.username}</p>
+                  </div> */}
+                </div>
+                
+              </a>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }

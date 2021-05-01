@@ -1,0 +1,58 @@
+.profile-album {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.album-photo-container {
+  columns: 3 150px;
+  column-gap: 1rem;
+  width: 70%;
+  margin: 130px;
+}
+
+.alb-photo {
+  margin: 0 1rem 1rem 0;
+  display: inline-block;
+  width: 100%;
+  transition: all .25s ease-in-out;
+  border-radius: 5px;
+}
+
+.album-photo-container p {
+  /* 435560 #92967d 9dad7f*/
+  background-color: #9dad7f;
+  color: white;
+  margin-top: auto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #6e7c7c
+}
+
+/* .profile-albums {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.album-grid-container {
+  columns: 2 150px;
+  column-gap: 1rem;
+  margin: 130px;
+  
+}
+
+.album-cover {
+  object-fit: cover;
+  height: 320px;
+  width: 320px;
+} */
