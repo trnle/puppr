@@ -24,7 +24,6 @@ function Albums() {
   return (
     <div className='profile-album'>
       <div className='nav-profile-album'>
-        <h3>Album page</h3>
         <a href={`/profile/${id}`}>Photostream</a>
         <a href={`/profile/${id}/albums`}>Albums</a>
       </div>
@@ -36,7 +35,9 @@ function Albums() {
             {album.Photos.map(photo => {
               return (
                 <div key={photo.id} className='alb-photo'>
-                  <img className='photo' src={photo.imgURL} alt={photo.title} />
+                  <a href={`/photos/${photo.id}`}>
+                    <img className='photo' src={photo.imgURL} alt={photo.title} />
+                  </a>
                 </div>
               )
             })}

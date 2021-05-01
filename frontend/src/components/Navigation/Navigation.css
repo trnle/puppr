@@ -36,6 +36,10 @@
   text-decoration: none;
 }
 
+#puppr-logo h2:hover, .nav-link:hover {
+  color: #9dad7f;
+}
+
 #profile-btn, #upload-btn {
   background: none;
   border: none;
@@ -45,6 +49,10 @@
 .fa-user-alt, .fa-cloud-upload-alt {
   color: white;
   font-size: 20px;
+}
+
+.fa-user-alt:hover, .fa-cloud-upload-alt:hover {
+  color: #9dad7f;
 }
 
 .dropdown-menu {
@@ -78,5 +86,4 @@
   font-weight: 540;
   text-decoration: none;
   padding: 6px 20px;
-  
 }
