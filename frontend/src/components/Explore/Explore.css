@@ -6,7 +6,7 @@
 }
 
 .explore-grid-container {
-  columns: 3 150px;
+  columns: 4 150px;
   column-gap: 1rem;
   width: 70%;
   margin: 120px;
