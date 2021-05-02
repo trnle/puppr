@@ -14,6 +14,7 @@ function Albums() {
   const userAlbums = useSelector(state => state.albums);
   const user = Object.values(userAlbums)[0]?.User;
 
+  console.log('albumssss',userAlbums)
   useEffect(() => {
     dispatch(getUserAlbums(id));
   }, [dispatch, id]);
@@ -52,10 +53,11 @@ function Albums() {
         return (
           <div key={album.id} className='album-photo-container'>
             <div className='album-info'>
-              <p id='album-title'>
+              <h4 id='album-title'>
                 {album.name}
-                <p id='album-description'>{album.description}</p>
-              </p>
+        
+              <p id='album-description'>{album.description}</p>
+              </h4>
             </div>
             {album.Photos.map(photo => {
               return (

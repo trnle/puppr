@@ -4,6 +4,7 @@ import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { getOnePhoto } from '../../store/photos';
 import { getComments } from '../../store/comments';
 import EditPhotoModal from '../../context/EditPhotoModal'
+import AlbumPhoto from '../../components/AlbumPhoto';
 import Comments from './Comments';
 import Footer from '../Footer';
 
@@ -40,6 +41,9 @@ function Photo() {
     <div className='photo-page-container'>
       <div className='single-photo-container'>
         <img src={photo.imgURL} alt={photo.title} width='40%' height='40%' />
+      </div>
+      <div className='album-add'>
+        {sessionUser.id === photo.User?.id && <AlbumPhoto photo={photo} />}
       </div>
       <div className='details-comments'>
         <div className='photo-details'>
