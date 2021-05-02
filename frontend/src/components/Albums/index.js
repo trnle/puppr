@@ -14,7 +14,6 @@ function Albums() {
   const userAlbums = useSelector(state => state.albums);
   const user = Object.values(userAlbums)[0]?.User;
 
-  console.log('albumssss',userAlbums)
   useEffect(() => {
     dispatch(getUserAlbums(id));
   }, [dispatch, id]);

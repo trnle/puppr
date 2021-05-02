@@ -27,6 +27,9 @@ function UploadPhotoModal({ user }) {
     }
     const newPhoto = await dispatch(uploadPhoto(uploadedPhoto))
     setShowModal(false);
+    setTitle('');
+    setCaption('');
+    setImgURL('');
     history.push(`/photos/${newPhoto.id}`)
   }
 

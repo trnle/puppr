@@ -42,9 +42,7 @@ router.post('', requireAuth, asyncHandler(async (req, res) => {
   const { title, caption, imgURL, userId } = req.body;
   // console.log('user',req.user.id);
   const newPhoto = await Photo.create({title, caption, imgURL, userId});
-  console.log('new', newPhoto)
   const data = await Photo.findByPk(newPhoto.id);
-  console.log('data',data);
   return res.json(newPhoto)
 }))
 

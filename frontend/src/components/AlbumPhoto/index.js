@@ -29,7 +29,7 @@ function AlbumPhoto({ photo }) {
   if (handleAddPhoto) {
     setTimeout(() => {
       setCheck('+');
-    }, 3000);
+    }, 1000);
   }
 
   if (!sessionUser) {
