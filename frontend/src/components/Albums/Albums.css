@@ -66,6 +66,10 @@
   font-size: 14px;
 }
 
+#explore-photo-title-1 {
+  font-weight: bold;
+}
+
 #explore-photo-title-1:hover {
   color: black;
 }

@@ -28,7 +28,7 @@ function App() {
           <Route exact path='/'>
             <Splash />
           </Route>
-          <Route path='/login'>
+          <Route exact path='/login'>
             <LoginFormPage />
           </Route>
           <Route path='/signup'>

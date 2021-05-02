@@ -31,9 +31,10 @@ function ProfileButton({ user }) {
     history.push(`/profile/${sessionUser.id}`);
   }
 
-  const logout = e => {
+  const logout = async e => {
     e.preventDefault();
-    dispatch(sessionActions.logout());
+    await dispatch(sessionActions.logout());
+    history.push('/');
   };
 
   return (

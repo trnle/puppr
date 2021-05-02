@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import DemoButton from '../DemoButton';
 import Footer from '../Footer';
-// import splashBackground from '../../images/splash-background.jpg';
 import './Splash.css'
 
 function Splash() {
