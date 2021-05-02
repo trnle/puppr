@@ -45,5 +45,6 @@ Check out the [wiki](https://github.com/trnle/puppr/wiki) and the [wireframe](ht
 ### Stretch Goals
 * Search for photos
 * Tags
-* Favorites
+* Gallery carousel
 * Follows
+* Favorites
