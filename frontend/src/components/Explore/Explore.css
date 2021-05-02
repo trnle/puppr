@@ -30,22 +30,47 @@ a {
   background-color: rgba(0, 0, 0, 0.089);
 }
 
+/* photo hover display photo info */
+.photo-box {
+  position: relative;
+}
+
 .photo {
   display: block;
   width: 100%; 
   height: auto;
+  opacity:1;
+  transition: .6s ease;
+  backface-visibility: hidden;
 }
 
 .photo:hover {
   cursor: point;
 }
 
-#explore-photo-title, #explore-photo-user {
-  margin: 5px 0;
-  padding: 0;
+.photo-box:hover .photo {
+  opacity: 0.5;
+}
+
+.photo-box:hover .text-display {
+  opacity: 1;
+  font-weight: bold;
+}
+
+.text-display {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  background-color: none;
-  width: 100%;
-  /* position: absolute;
-  visibility: hidden; */
+}
+
+#explore-photo-title, #explore-photo-user {
+  margin: 0;
+}
+
+#explore-photo-title:hover, #explore-photo-user:hover {
+  color: black;
 }
