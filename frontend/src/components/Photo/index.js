@@ -5,6 +5,7 @@ import { getOnePhoto } from '../../store/photos';
 import { getComments } from '../../store/comments';
 import EditPhotoModal from '../../context/EditPhotoModal'
 import Comments from './Comments';
+import Footer from '../Footer';
 
 import './Photo.css'
 
@@ -52,6 +53,7 @@ function Photo() {
         <div className='tags-container'>Tags Coming Soon</div>
         <Comments />
       </div>
+      <Footer />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Redirect, useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAlbums } from '../../store/albums';
+import Footer from '../Footer';
 
 import './Albums.css'
 
@@ -69,6 +70,7 @@ function Albums() {
           </div>
         )
       })}
+      <Footer />
     </div>
   )
 }

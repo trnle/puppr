@@ -2,6 +2,7 @@
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import DemoButton from '../DemoButton';
+import Footer from '../Footer';
 // import splashBackground from '../../images/splash-background.jpg';
 import './Splash.css'
 
@@ -13,11 +14,12 @@ function Splash() {
       <div className='splash-page'>
         <div className='intro-text'>
           <h1>Find your happiness.</h1>
-          <h2>Join the Puppr community, home to tens of billions of photos of dogs.</h2>
+          <h2>Choose a demo user to enter the Puppr community.</h2>
           <div className='demo-users'>
             <DemoButton />
           </div>
         </div>
+        <Footer />
       </div>
     )
   }

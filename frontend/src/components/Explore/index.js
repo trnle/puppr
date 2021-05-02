@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPhotos } from '../../store/photos';
+import Footer from '../Footer';
 
 import './Explore.css'
 
@@ -49,6 +50,7 @@ function Explore() {
           )
         })}
       </div>
+      <Footer />
     </div>
   )
 }

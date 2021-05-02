@@ -57,8 +57,10 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div className='nav-container'>
-      {isLoaded && sessionLinks}
+    <div>
+      <div className='nav-container'>
+        {isLoaded && sessionLinks}
+      </div>
     </div>
   );
 }

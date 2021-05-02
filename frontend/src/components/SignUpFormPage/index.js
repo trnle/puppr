@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import './SignUpForm.css';
+import Footer from "../Footer";
 import pupprIcon from '../../images/puppr-icon.png';
+import './SignUpForm.css';
 
 function SignUpFormPage() {
   const dispatch = useDispatch();
@@ -75,82 +76,85 @@ function SignUpFormPage() {
   FloatLabel.init();
 
   return (
-    <form onSubmit={handleSubmit} className='signup-container'>
-      <div className='signup-form'>
-        <img src={pupprIcon} alt="Puppr Icon" height='28px' weight='28px' />
-        <p>Sign up for Puppr</p>
-        <ul id='errors-list'>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        <div id='floatContainer' className='float-container'>
-          <label>First Name</label>
-          <input
-            id='floatField'
-            type='text'
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
+    <div className='signup-page-container'>
+      <form onSubmit={handleSubmit} className='signup-container'>
+        <div className='signup-form'>
+          <img src={pupprIcon} alt="Puppr Icon" height='28px' weight='28px' />
+          <p>Sign up for Puppr</p>
+          <ul id='errors-list'>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
+          <div id='floatContainer' className='float-container'>
+            <label>First Name</label>
+            <input
+              id='floatField'
+              type='text'
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </div>
+          <div id='floatContainer' className='float-container'>
+            <label>Last Name</label>
+            <input
+              id='floatField'
+              type='text'
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </div>
+          <div id='floatContainer' className='float-container'>
+            <label>Username</label>
+            <input
+              id='floatField'
+              type='text'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div id='floatContainer' className='float-container'>
+            <label>Email</label>
+            <input
+              id='floatField'
+              type='text'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div id='floatContainer' className='float-container'>
+            <label>Password</label>
+            <input
+              id='floatField'
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div id='floatContainer' className='float-container'>
+            <label>Confirm Password</label>
+            <input
+              id='floatField'
+              type='password'
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type='submit' id='signup-btn'>Sign Up</button>
+          <div className='nav-login'>
+            <p>
+              Already a Puppr member?
+              <a href="/login" onClick={navLogin}> Log in here.</a>
+            </p>
+          </div>
         </div>
-        <div id='floatContainer' className='float-container'>
-          <label>Last Name</label>
-          <input
-            id='floatField'
-            type='text'
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
-        </div>
-        <div id='floatContainer' className='float-container'>
-          <label>Username</label>
-          <input
-            id='floatField'
-            type='text'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div id='floatContainer' className='float-container'>
-          <label>Email</label>
-          <input
-            id='floatField'
-            type='text'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div id='floatContainer' className='float-container'>
-          <label>Password</label>
-          <input
-            id='floatField'
-            type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div id='floatContainer' className='float-container'>
-          <label>Confirm Password</label>
-          <input
-            id='floatField'
-            type='password'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type='submit' id='signup-btn'>Sign Up</button>
-        <div className='nav-login'>
-          <p>
-            Already a Puppr member?
-            <a href="/login" onClick={navLogin}> Log in here.</a>
-          </p>
-        </div>
-      </div>
-    </form>
+        <Footer />
+      </form>
+    </div>
   );
 }
 

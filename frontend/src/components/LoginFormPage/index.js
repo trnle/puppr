@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
-import './LoginForm.css';
 import pupprIcon from '../../images/puppr-icon.png';
+import Footer from '../Footer';
+import './LoginForm.css';
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -71,48 +72,52 @@ function LoginFormPage() {
   FloatLabel.init();
 
   return (
-    <form onSubmit={handleSubmit} className='login-container'>
-      <div className='login-form'>
-        <img src={pupprIcon} alt="Puppr Icon" height='28px' weight='28px' />
-        <p>Log in to Puppr</p>
-        <ul id='errors-list'>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        <div id='floatContainer' className='float-container'>
-          <label>
-            Username or Email
-        </label>
-          <input
-            id='floatField'
-            type='text'
-            name='credential'
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
+    <div className='login-page-container'>
+
+      <form onSubmit={handleSubmit} className='login-container'>
+        <div className='login-form'>
+          <img src={pupprIcon} alt="Puppr Icon" height='28px' weight='28px' />
+          <p>Log in to Puppr</p>
+          <ul id='errors-list'>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
+          <div id='floatContainer' className='float-container'>
+            <label>
+              Username or Email
+          </label>
+            <input
+              id='floatField'
+              type='text'
+              name='credential'
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </div>
+          <div id='floatContainer' className='float-container'>
+            <label>
+              Password
+          </label>
+            <input
+              id='floatField'
+              name='password'
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type='submit' id='login-btn'>Log In</button>
+          <div className='nav-sign-up'>
+            <p>
+              Not a Puppr member?
+            <a href="/signup" onClick={navSignup}> Sign up here.</a>
+            </p>
+          </div>
         </div>
-        <div id='floatContainer' className='float-container'>
-          <label>
-            Password
-         </label>
-          <input
-            id='floatField'
-            name='password'
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type='submit' id='login-btn'>Log In</button>
-        <div className='nav-sign-up'>
-          <p>
-            Not a Puppr member?
-          <a href="/signup" onClick={navSignup}> Sign up here.</a>
-          </p>
-        </div>
-      </div>
-    </form>
+        <Footer />
+      </form>
+    </div>
   );
 }
 

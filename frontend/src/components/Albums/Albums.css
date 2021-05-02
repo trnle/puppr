@@ -18,6 +18,10 @@
   color: #212124;
 }
 
+.album-info {
+  box-shadow: 0px 2px 8px -4px black;
+}
+
 .album-info p {
   padding: 4px;
 }
