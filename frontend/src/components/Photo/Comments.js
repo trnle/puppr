@@ -17,10 +17,10 @@ function Comments() {
   let otherComments = Object.values(comments).filter(comment => comment.userId !== sessionUser.id)
 
   const [newComment, setNewComment] = useState('');
-  const [currentComment, setCurrentComment] = useState(-1);
+  // const [currentComment, setCurrentComment] = useState(-1);
   const [deletedCommentId, setDeletedCommentId] = useState('');
 
-  const [body, setBody] = useState('');
+  // const [body, setBody] = useState('');
 
   useEffect(() => {
     dispatch(getComments(id));
@@ -44,20 +44,21 @@ function Comments() {
     dispatch(deleteComment(deletedCommentId));
   }
 
-  const handleEdit = i => {
-    setCurrentComment(i);
-  }
+  // const handleEdit = i => {
+  //   setCurrentComment(i);
+  // }
 
-  const handleSaveEdit = e => {
-    e.preventDefault();
-    const updateComment = {
-      body,
-      userId: sessionUser.id,
-      photoId: id
-    }
-    console.log('testttting', updateComment);
-    return dispatch(updateUserComment(updateComment));
-  }
+  // const handleSaveEdit = e => {
+  //   e.preventDefault();
+  //   const updateComment = {
+  //     body,
+  //     userId: sessionUser.id,
+  //     photoId: id
+  //   }
+  //   setCurrentComment(!currentComment);
+  //   // console.log('testttting', updateComment);
+  //   return dispatch(updateUserComment(updateComment));
+  // }
 
   if (!sessionUser) {
     return (
@@ -82,25 +83,28 @@ function Comments() {
           ))}
           {Object.values(userComments).map((comment, i) => (
             <div key={i} className='edit-form'>
-              <a href={`/profile/${comment.User.id}`} onClick={e => {
+              <a href={`/profile/${comment.User?.id}`} onClick={e => {
                 e.preventDefault();
                 history.push(`/profile/${comment.User.id}`)
               }}>
                 <p className='session-username-display'>{comment.User?.username}</p>
               </a>
-              <p className='session-user-comment'>{comment.body}</p>
+              <div className='edit-user-comment'>
+                <p className='session-user-comment'>{comment.body}</p>
                 <div className='form'>
-                  {currentComment === i &&
+                  {/* {currentComment === i &&
                     <form className='input-form' onSubmit={handleSaveEdit}>
                       <input type='text' value={body} onChange={e => setBody(e.target.value)} />
                       <button id='save-btn'>Save</button>
                     </form>
                   }
-                  <button id='edit-comment-btn' onClick={() => handleEdit(i)}>Edit</button>
+                  <button id='edit-comment-btn' onClick={() => handleEdit(i)}>Edit</button> */}
                   <form onSubmit={handleDelete}>
                     <button id='delete-btn' type='submit' onClick={e => setDeletedCommentId(comment.id)}>X</button>
                   </form>
                 </div>
+              </div>
+              
             </div>
           ))}
           <hr id='comments-hr'/>

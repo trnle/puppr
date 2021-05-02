@@ -24,6 +24,11 @@
   padding: 20px 40px 0 230px;
 }
 
+.user-follow {
+  display: flex;
+  justify-content: space-between;
+}
+
 #photo-title, #photo-caption {
   margin-top: 5px;
 }
@@ -46,9 +51,6 @@
 }
 
 .follow-btn {
-  display: inline-block;
-  margin-left: 330px;
-  position: absolute;
   font-weight: bold;
   padding: 6px 15px;
 }
@@ -98,7 +100,7 @@ p {
 
 .user-comment, .session-user-comment {
   font-size: 15px;
-  margin: 5px 0 20px 0;
+  margin: 5px 0 15px 0;
 }
 
 a p:hover {
@@ -108,6 +110,10 @@ a p:hover {
 /* Edit button features */
 #edit-comment-btn, #delete-btn, #save-btn {
   background-color: #c0bebe;
+}
+
+#delete-btn {
+  font-size: 11px;
 }
 
 #edit-comment-btn:hover, #delete-btn:hover {
@@ -131,4 +137,9 @@ hr#comments-hr {
 textarea {
   border-radius: 5px;
   border-color: #c0bebe;
+}
+
+.edit-user-comment {
+  display: flex;
+  justify-content: space-between;
 }
