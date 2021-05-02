@@ -11,7 +11,8 @@ function Albums() {
   const history = useHistory();
   const { id } = useParams();
   const userAlbums = useSelector(state => state.albums);
-  console.log('user', userAlbums);
+  const user = Object.values(userAlbums)[0]?.User;
+
   useEffect(() => {
     dispatch(getUserAlbums(id));
   }, [dispatch, id]);
@@ -34,6 +35,14 @@ function Albums() {
 
   return (
     <div className='profile-album'>
+      <div className='user-info-container'>
+        <div id='user-name-display'>
+          <p>{user?.firstName} {user?.lastName}</p>
+        </div>
+        <div id='user-email-display'>
+          <p>{user?.email}</p>
+        </div>
+      </div>
       <div className='nav-profile-album'>
         <a href={`/profile/${id}`} onClick={navPhotostream} >Photostream</a>
         <a href={`/profile/${id}/albums`} onClick={navAlbums}>Albums</a>

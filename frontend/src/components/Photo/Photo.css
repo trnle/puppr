@@ -47,13 +47,11 @@
 
 .follow-btn {
   display: inline-block;
-  margin-left: 330px;
+  margin-left: 277px;
   position: absolute;
   font-weight: bold;
   padding: 6px 15px;
 }
-
-
 
 .user-comment-container {
   margin-top: 12px;

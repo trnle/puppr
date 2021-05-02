@@ -27,7 +27,7 @@ function Explore() {
 
   return (
     <div className='explore-gallery'>
-      <div className='grid-container'>
+      <div className='explore-grid-container'>
         {Object.values(photos).map(photo => {
           return (
             <div key={photo.id} className='photo-container'>

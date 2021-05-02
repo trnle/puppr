@@ -5,11 +5,11 @@
   flex-direction: column;
 }
 
-.grid-container {
+.explore-grid-container {
   columns: 3 150px;
   column-gap: 1rem;
   width: 70%;
-  margin: 130px;
+  margin: 120px;
 }
 
 .photo-container {
