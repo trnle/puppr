@@ -35,6 +35,9 @@ Check out the [wiki](https://github.com/trnle/puppr/wiki) and the [wireframe](ht
 * Users can edit add, delete comments, and update comments.
 * Users can create albums for their photos and edit or delete the albums.
 * Prevents csrf attacks and uses validation forms to authenticate users.
+* Photo upload and photo edit forms created by using modals.
+* Uses AJAX to asynchronously render elements like editing or deleting a comment.
+* Users have a profile page with that contains their photostream and albums.
 
 <img src="https://user-images.githubusercontent.com/58532396/116804387-e1f28e80-aae3-11eb-9dbb-7fa9632e83a6.gif" alt="signup-page" width="80%">
 <img src="https://user-images.githubusercontent.com/58532396/116804391-efa81400-aae3-11eb-977f-0cbb8e425ada.gif" alt="explore-page" width="80%">
