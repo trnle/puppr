@@ -3,6 +3,7 @@ body {
   margin: 0;
   font-family: 'Helvetica Neue';
   background-color: #f3f5f6;
+  overflow-x: hidden;
 }
 
 button {

@@ -54,7 +54,13 @@ function Profile() {
           return (
             <div key={photo.id} className='profile-photo-container'>
               <a href={`/photos/${photo.id}`} onClick={e => { e.preventDefault(); history.push(`/photos/${photo.id}`)}}>
-                <img className='photo' src={photo.imgURL} alt={photo.title} />
+                <div className='photo-box'>
+                  <img className='photo' src={photo.imgURL} alt={photo.title} />
+                  <div className='text-display'>
+                    <p id='explore-photo-title'>{photo.title}</p>
+                    <p id='explore-photo-user'>by {photo.User?.username}</p>
+                  </div>
+                </div>
               </a>
             </div>
           )

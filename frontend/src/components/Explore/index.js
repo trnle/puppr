@@ -44,7 +44,6 @@ function Explore() {
                     <p id='explore-photo-user'>by {photo.User?.username}</p>
                   </div>
                 </div>
-                
               </a>
             </div>
           )

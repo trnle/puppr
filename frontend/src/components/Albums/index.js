@@ -62,7 +62,12 @@ function Albums() {
               return (
                 <div key={photo.id} className='alb-photo'>
                   <a href={`/photos/${photo.id}`}>
-                    <img className='photo' src={photo.imgURL} alt={photo.title} />
+                    <div className='photo-box'>
+                      <img className='photo' src={photo.imgURL} alt={photo.title} />
+                      <div className='text-display'>
+                        <p id='explore-photo-title-1'>{photo.title}</p>
+                      </div>
+                    </div>
                   </a>
                 </div>
               )
