@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     // Photo.hasMany(models.Comment, { foreignKey: 'photoId' });
     // delete comment association
     Photo.hasMany(models.Comment, {foreignKey: 'photoId', onDelete: 'CASCADE', hooks: true});
+    Photo.hasMany(models.AlbumPhoto, { foreignKey: 'photoId', onDelete: 'CASCADE', hooks: true });
     const columnMapping = {
       foreignKey: 'photoId',
       otherKey: 'albumId',
