@@ -43,7 +43,7 @@ function UploadPhotoModal({ user }) {
             <input type="text" value={caption} placeholder='Caption' onChange={e => setCaption(e.target.value)} />
             <input type="text" value={imgURL} placeholder='Image URL' onChange={e => setImgURL(e.target.value)} required />
             <button id='submit-photo-btn' type='submit'>Submit</button>
-            <button id='cancel-photo-btn' onClick={() => setShowModal(false)}>Cancel</button>
+            <button type='button' id='cancel-photo-btn' onClick={() => setShowModal(false)}>Cancel</button>
           </form>
         </Modal>
       )}

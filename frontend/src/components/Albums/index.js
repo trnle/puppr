@@ -57,7 +57,6 @@ function Albums() {
                 <p id='album-description'>{album.description}</p>
               </p>
             </div>
-            {/* {console.log('testing album',album)} */}
             {album.Photos.map(photo => {
               return (
                 <div key={photo.id} className='alb-photo'>
@@ -79,7 +78,6 @@ function Albums() {
     </div>
   )
 }
-
 
 export default Albums;
 

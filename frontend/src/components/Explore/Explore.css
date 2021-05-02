@@ -54,7 +54,6 @@ a {
 
 .photo-box:hover .text-display {
   opacity: 1;
-  font-weight: bold;
 }
 
 .text-display {
@@ -69,6 +68,10 @@ a {
 
 #explore-photo-title, #explore-photo-user {
   margin: 0;
+}
+
+#explore-photo-title {
+  font-weight: bold;
 }
 
 #explore-photo-title:hover, #explore-photo-user:hover {
