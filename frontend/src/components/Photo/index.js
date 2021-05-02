@@ -42,9 +42,6 @@ function Photo() {
       <div className='single-photo-container'>
         <img src={photo.imgURL} alt={photo.title} width='40%' height='40%' />
       </div>
-      <div className='album-add'>
-        {sessionUser.id === photo.User?.id && <AlbumPhoto photo={photo} />}
-      </div>
       <div className='details-comments'>
         <div className='photo-details'>
           {sessionUser.id === photo.User?.id && <EditPhotoModal />}
@@ -52,8 +49,15 @@ function Photo() {
             <a id='photographer' href={`/profile/${photo.User?.id}`} onClick={navProfile}>{photo.User?.username}</a>
             {sessionUser.id !== photo.User?.id && <button className='follow-btn'>Follow</button>}
           </div>
-          <p id='photo-title'>{photo.title}</p>
-          <p id='photo-caption'>{photo.caption}</p>
+          <div className='title-album-container'>
+            <p id='photo-title'>{photo.title}</p>
+              <div className='album-add'>
+                {sessionUser.id === photo.User?.id && <AlbumPhoto photo={photo} />}
+              </div>
+          </div>
+          <div className='caption'>
+            <p id='photo-caption'>{photo.caption}</p>
+          </div>
           <hr/>
         </div>
         <div className='tags-container'>Tags Coming Soon</div>

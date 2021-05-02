@@ -55,7 +55,6 @@ function Albums() {
             <div className='album-info'>
               <h4 id='album-title'>
                 {album.name}
-        
               <p id='album-description'>{album.description}</p>
               </h4>
             </div>
