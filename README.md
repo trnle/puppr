@@ -38,11 +38,10 @@ Check out the [wiki](https://github.com/trnle/puppr/wiki) and the [wireframe](ht
 ***
 
 ### Key Features
-* Logged in users have access to view and upload photos, create photo albums, and comment on photos.
-
-***
-
-### Code Snippets
+* Users have access to view, upload, and edit photos.
+* Users can edit add, delete comments, and update comments.
+* Users can create albums for their photos and edit or delete the albums.
+* Prevents csrf attacks and uses validation forms to authenticate users.
 
 ***
 
