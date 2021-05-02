@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
-import { getComments, createComment, updateUserComment, deleteComment } from '../../store/comments';
+import { getComments, createComment, deleteComment } from '../../store/comments';
 
 import './Photo.css'
 
@@ -116,7 +116,6 @@ function Comments() {
           </div>
         </div>
       </div>
-
     )
   }
 

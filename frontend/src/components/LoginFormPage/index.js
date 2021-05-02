@@ -86,7 +86,7 @@ function LoginFormPage() {
               Username or Email
           </label>
             <input
-              id='floatField'
+              className='floatField'
               type='text'
               name='credential'
               value={credential}
@@ -99,7 +99,7 @@ function LoginFormPage() {
               Password
           </label>
             <input
-              id='floatField'
+              className='floatField'
               name='password'
               type="password"
               value={password}

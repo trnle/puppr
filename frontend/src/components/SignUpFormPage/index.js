@@ -87,7 +87,7 @@ function SignUpFormPage() {
           <div id='floatContainer' className='float-container'>
             <label>First Name</label>
             <input
-              id='floatField'
+              className='floatField'
               type='text'
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
@@ -97,7 +97,7 @@ function SignUpFormPage() {
           <div id='floatContainer' className='float-container'>
             <label>Last Name</label>
             <input
-              id='floatField'
+              className='floatField'
               type='text'
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
@@ -107,7 +107,7 @@ function SignUpFormPage() {
           <div id='floatContainer' className='float-container'>
             <label>Username</label>
             <input
-              id='floatField'
+              className='floatField'
               type='text'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -117,7 +117,7 @@ function SignUpFormPage() {
           <div id='floatContainer' className='float-container'>
             <label>Email</label>
             <input
-              id='floatField'
+              className='floatField'
               type='text'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -127,7 +127,7 @@ function SignUpFormPage() {
           <div id='floatContainer' className='float-container'>
             <label>Password</label>
             <input
-              id='floatField'
+              className='floatField'
               type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -137,7 +137,7 @@ function SignUpFormPage() {
           <div id='floatContainer' className='float-container'>
             <label>Confirm Password</label>
             <input
-              id='floatField'
+              className='floatField'
               type='password'
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
