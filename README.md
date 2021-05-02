@@ -42,6 +42,7 @@ Check out the [wiki](https://github.com/trnle/puppr/wiki) and the [wireframe](ht
 <img src="https://user-images.githubusercontent.com/58532396/116804387-e1f28e80-aae3-11eb-9dbb-7fa9632e83a6.gif" alt="signup-page" width="80%">
 <img src="https://user-images.githubusercontent.com/58532396/116804391-efa81400-aae3-11eb-977f-0cbb8e425ada.gif" alt="explore-page" width="80%">
 <img src="https://user-images.githubusercontent.com/58532396/116804595-97721180-aae5-11eb-916c-85ceab685ce9.gif" alt="photo-page" width="80%">
+<img src="https://user-images.githubusercontent.com/58532396/116831038-bb2f6900-ab72-11eb-8c80-92e22c605d50.gif" alt="upload-photo" width="80%">
 
 ***
 
