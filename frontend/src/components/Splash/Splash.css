@@ -13,7 +13,7 @@
   color: black;
   text-align: center;
   vertical-align: middle;
-  margin-top: 270px;
+  margin-top: 255px;
 }
 
 .intro-text h1 {
@@ -23,5 +23,5 @@
 
 .intro-text h2 {
   font-size: 26px;
-  margin: 15px;
+  margin-top: 5px;
 }
