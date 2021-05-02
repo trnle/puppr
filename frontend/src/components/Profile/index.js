@@ -58,7 +58,6 @@ function Profile() {
                   <img className='photo' src={photo.imgURL} alt={photo.title} />
                   <div className='text-display'>
                     <p id='explore-photo-title'>{photo.title}</p>
-                    <p id='explore-photo-user'>by {photo.User?.username}</p>
                   </div>
                 </div>
               </a>
