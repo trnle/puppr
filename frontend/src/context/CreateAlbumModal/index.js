@@ -36,7 +36,6 @@ function CreateAlbumModal({ user }) {
             <h3>Create Album</h3>
             <input type="text" value={albumName} placeholder='Title' onChange={e => setAlbumName(e.target.value)} required />
             <textarea value={description} placeholder='Description' onChange={e => setDescription(e.target.value)} cols="30" rows="3"></textarea>
-            {/* <input type="text" value={description} placeholder='Description' onChange={e => setDescription(e.target.value)} /> */}
             <button id='save-album-btn' type='submit'>Save</button>
             <button type='button' id='cancel-album-btn' onClick={() => setShowModal(false)}>Cancel</button>
           </form>

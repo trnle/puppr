@@ -14,6 +14,7 @@ function Albums() {
   const { id } = useParams();
   const userAlbums = useSelector(state => state.albums);
   const user = Object.values(userAlbums)[0]?.User;
+  const userId = parseInt(id, 10);
 
   useEffect(() => {
     dispatch(getUserAlbums(id));
@@ -50,7 +51,7 @@ function Albums() {
         <a href={`/profile/${id}/albums`} onClick={navAlbums}>Albums</a>
       </div>
       <div className='add-album-modal'>
-        {sessionUser && <CreateAlbumModal user={sessionUser} />}
+        {sessionUser.id === userId && <CreateAlbumModal user={sessionUser} />}
       </div>
       {Object.values(userAlbums)?.map(album => {
         return (
