@@ -146,11 +146,6 @@ hr#comments-hr {
   margin-top: 30px;
 }
 
-textarea {
-  border-radius: 5px;
-  border-color: #c0bebe;
-}
-
 .edit-user-comment {
   display: flex;
   justify-content: space-between;
