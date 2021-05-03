@@ -1,0 +1,20 @@
+.modal button {
+  background-color: #c0bebe;
+}
+
+.modal button:hover {
+  background-color: #212124;
+}
+
+#cancel-album-btn, #save-album-btn {
+  background-color: #c0bebe;
+  margin-bottom: 5px;
+}
+
+#save-album-btn {
+  margin-top: 9px;
+}
+
+#cancel-album-btn:hover, #save-album-btn:hover {
+  background-color: #212124;
+}

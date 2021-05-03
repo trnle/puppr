@@ -11,7 +11,7 @@
   text-align: center;
   padding: 20px 0 20px 0;
   box-shadow: 0px 2px 5px -4px black;
-  margin-bottom: 50px;
+  margin-bottom: 23px;
 }
 
 .nav-profile-album a {
@@ -78,4 +78,11 @@
 
 #explore-photo-title-1:hover {
   color: black;
+}
+
+.add-album-modal {
+  display: flex;
+  justify-content: center;
+  margin-left: 692px;
+  margin-bottom: 20px;
 }

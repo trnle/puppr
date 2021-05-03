@@ -40,9 +40,7 @@ router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
 // upload image
 router.post('', requireAuth, asyncHandler(async (req, res) => {
   const { title, caption, imgURL, userId } = req.body;
-  // console.log('user',req.user.id);
   const newPhoto = await Photo.create({title, caption, imgURL, userId});
-  const data = await Photo.findByPk(newPhoto.id);
   return res.json(newPhoto)
 }))
 

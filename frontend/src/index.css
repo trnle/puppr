@@ -12,6 +12,7 @@ button {
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
+  box-shadow: 0px 2px 4px -4px black;
 }
 
 button:hover {
@@ -20,4 +21,13 @@ button:hover {
 
 img {
   box-shadow: 0px 2px 8px -4px black;
+}
+
+input, select {
+  border: 1px solid #c0bebe;
+  border-radius: 5px;
+}
+
+input:focus, select:focus {
+  outline-color: #9dad7f;
 }

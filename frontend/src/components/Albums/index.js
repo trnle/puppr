@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Redirect, useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAlbums } from '../../store/albums';
+import CreateAlbumModal from '../../context/CreateAlbumModal';
 import Footer from '../Footer';
 
 import './Albums.css'
@@ -13,7 +14,7 @@ function Albums() {
   const { id } = useParams();
   const userAlbums = useSelector(state => state.albums);
   const user = Object.values(userAlbums)[0]?.User;
-
+  console.log('useralbs', Object.values(userAlbums))
   useEffect(() => {
     dispatch(getUserAlbums(id));
   }, [dispatch, id]);
@@ -28,7 +29,7 @@ function Albums() {
     history.push(`/profile/${id}/albums`);
   }
 
-  if(!sessionUser) {
+  if (!sessionUser) {
     return (
       <Redirect to='/login' />
     )
@@ -48,16 +49,19 @@ function Albums() {
         <a href={`/profile/${id}`} onClick={navPhotostream} >Photostream</a>
         <a href={`/profile/${id}/albums`} onClick={navAlbums}>Albums</a>
       </div>
-      {Object.values(userAlbums).map(album => {
+      <div className='add-album-modal'>
+        {sessionUser.id === user?.id && <CreateAlbumModal user={sessionUser} />}
+      </div>
+      {Object.values(userAlbums)?.map(album => {
         return (
           <div key={album.id} className='album-photo-container'>
             <div className='album-info'>
               <h4 id='album-title'>
                 {album.name}
-              <p id='album-description'>{album.description}</p>
+                <p id='album-description'>{album.description}</p>
               </h4>
             </div>
-            {album.Photos.map(photo => {
+            {album.Photos && album.Photos.map(photo => {
               return (
                 <div key={photo.id} className='alb-photo'>
                   <a href={`/photos/${photo.id}`}>
