@@ -1,12 +1,8 @@
 #add-photo-btn {
   margin-left: 5px;
-  padding: 2.5px 8px;
+  padding: 2px 8px;
 }
 
 #add-photo-btn:hover {
   background-color: #212124;
 } 
-
-#add-photo-btn:after {
-  
-}
