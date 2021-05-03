@@ -31,3 +31,8 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
   outline-color: #9dad7f;
 }
+
+textarea {
+  font-family: 'Helvetica Neue';
+  padding: 10px;
+}
