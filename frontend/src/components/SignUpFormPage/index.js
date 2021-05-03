@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import Footer from "../Footer";
 import pupprIcon from '../../images/puppr-icon.png';
 import './SignUpForm.css';
 
@@ -152,7 +151,6 @@ function SignUpFormPage() {
             </p>
           </div>
         </div>
-        <Footer />
       </form>
     </div>
   );

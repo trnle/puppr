@@ -104,7 +104,6 @@ function Comments() {
                   </form>
                 </div>
               </div>
-              
             </div>
           ))}
           <hr id='comments-hr'/>

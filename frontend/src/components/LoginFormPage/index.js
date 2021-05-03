@@ -3,7 +3,6 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import pupprIcon from '../../images/puppr-icon.png';
-import Footer from '../Footer';
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -115,7 +114,6 @@ function LoginFormPage() {
             </p>
           </div>
         </div>
-        <Footer />
       </form>
     </div>
   );

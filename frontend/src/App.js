@@ -10,6 +10,7 @@ import Photo from './components/Photo';
 import Profile from './components/Profile';
 import Albums from './components/Albums';
 import PageNotFound from './components/PageNotFound';
+import Footer from './components/Footer';
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }

@@ -3,7 +3,6 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import UploadPhotoModal from '../../context/UploadPhotoModal';
-// import LoginFormModal from '../LoginFormPage'
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {

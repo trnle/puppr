@@ -3,7 +3,6 @@ import { Redirect, useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAlbums } from '../../store/albums';
 import CreateAlbumModal from '../../context/CreateAlbumModal';
-import Footer from '../Footer';
 
 import './Albums.css'
 
@@ -79,7 +78,6 @@ function Albums() {
           </div>
         )
       })}
-      <Footer />
     </div>
   )
 }

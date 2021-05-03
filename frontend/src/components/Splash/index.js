@@ -1,8 +1,6 @@
-// import React, { useState, useEffect } from "react";
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import DemoButton from '../DemoButton';
-import Footer from '../Footer';
 import './Splash.css'
 
 function Splash() {
@@ -18,7 +16,6 @@ function Splash() {
             <DemoButton />
           </div>
         </div>
-        <Footer />
       </div>
     )
   }

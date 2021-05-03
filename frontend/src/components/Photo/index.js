@@ -6,7 +6,6 @@ import { getComments } from '../../store/comments';
 import EditPhotoModal from '../../context/EditPhotoModal'
 import AlbumPhoto from '../../components/AlbumPhoto';
 import Comments from './Comments';
-import Footer from '../Footer';
 
 import './Photo.css'
 
@@ -63,7 +62,6 @@ function Photo() {
         <div className='tags-container'>Tags Coming Soon</div>
         <Comments />
       </div>
-      <Footer />
     </div>
   )
 }
