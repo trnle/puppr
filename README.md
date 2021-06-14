@@ -32,7 +32,7 @@ Check out the [wiki](https://github.com/trnle/puppr/wiki)!
 
 ### Key Features
 * Users have access to view, upload, and edit photos.
-* Users can edit add, delete comments, and update comments.
+* Users can add, delete comments, and update comments.
 * Users can create albums for their photos and edit or delete the albums.
 * Prevents csrf attacks and uses validation forms to authenticate users.
 * Photo upload and photo edit forms created by using modals.
