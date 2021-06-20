@@ -36,3 +36,12 @@ textarea {
   font-family: 'Helvetica Neue';
   padding: 10px;
 }
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

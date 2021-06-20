@@ -79,7 +79,6 @@
 .follow-btn:hover,  #save-btn:hover, #comment-btn:hover{
   background-color: #212124;
   color: white;
-  transition-duration: 0.3s;
 }
 
 .photos-comments-tags {

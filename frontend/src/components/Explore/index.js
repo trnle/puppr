@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPhotos } from '../../store/photos';
@@ -9,7 +9,9 @@ function Explore() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
-  const photos = useSelector(state => state.photos)
+  let photos = useSelector(state => state.photos);
+  photos = Object.values(photos);
+  // const [loadPhotos, setLoadPhotos] = useState(10);
 
   useEffect(() => {
     dispatch(getPhotos());
@@ -28,7 +30,8 @@ function Explore() {
   return (
     <div className='explore-gallery'>
       <div className='explore-grid-container'>
-        {Object.values(photos).map(photo => {
+        {/* photos.slice(0, loadPhotos) */}
+        {photos.map(photo => {
           return (
             <div key={photo.id} className='photo-container'>
               <a href={`/photos/${photo.id}`}
@@ -47,6 +50,11 @@ function Explore() {
             </div>
           )
         })}
+        {/* <div id='load-photos'>
+          {photos.length > loadPhotos && (
+            <button id='load-photos-btn' onClick={() => setLoadPhotos(loadPhotos + 10)}>Load More Photos</button>
+          )}
+        </div> */}
       </div>
     </div>
   )
