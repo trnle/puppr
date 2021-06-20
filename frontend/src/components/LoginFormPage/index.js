@@ -32,44 +32,6 @@ function LoginFormPage() {
     history.push('/signup');
   }
 
-  const FloatLabel = (() => {
-    // add active class
-    const handleFocus = (e) => {
-      const target = e.target;
-      target.parentNode.classList.add('active');
-    };
-    // remove active class
-    const handleBlur = (e) => {
-      const target = e.target;
-      if (!target.value) {
-        target.parentNode.classList.remove('active');
-      }
-      target.removeAttribute('placeholder');
-    };
-    // register events
-    const bindEvents = (element) => {
-      const floatField = element.querySelector('input');
-      floatField.addEventListener('focus', handleFocus);
-      floatField.addEventListener('blur', handleBlur);
-    };
-    // get DOM elements
-    const init = () => {
-      const floatContainers = document.querySelectorAll('.float-container');
-      floatContainers.forEach((element) => {
-        if (element.querySelector('input').value) {
-          element.classList.add('active');
-        }
-        bindEvents(element);
-      });
-    };
-
-    return {
-      init: init
-    };
-  })();
-
-  FloatLabel.init();
-
   return (
     <div className='login-page-container'>
 
@@ -83,7 +45,7 @@ function LoginFormPage() {
           <div id='floatContainer' className='float-container'>
             <label>
               Username or Email
-          </label>
+            </label>
             <input
               className='floatField'
               type='text'
@@ -96,7 +58,7 @@ function LoginFormPage() {
           <div id='floatContainer' className='float-container'>
             <label>
               Password
-          </label>
+            </label>
             <input
               className='floatField'
               name='password'
@@ -110,7 +72,7 @@ function LoginFormPage() {
           <div className='nav-sign-up'>
             <p>
               Not a Puppr member?
-            <a href="/signup" onClick={navSignup}> Sign up here.</a>
+              <a href="/signup" onClick={navSignup}> Sign up here.</a>
             </p>
           </div>
         </div>
