@@ -23,7 +23,6 @@ Check out the [wiki](https://github.com/trnle/puppr/wiki)!
 * PostgreSQL
 * Express.js
 * Sequelize.js
-* AWS S3
 * AJAX
 * CSURF Library
 * Express Validator Library
