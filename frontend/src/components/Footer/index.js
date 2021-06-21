@@ -8,10 +8,10 @@ function Footer() {
         <span role='img' aria-label='bee'> &#128029;</span>
       </div>
       <div className='links'>
-        <a href='https://github.com/trnle/'>
+        <a href='https://github.com/trnle/' target='_blank' rel='noreferrer'>
           <i className="fab fa-github"></i>
         </a>
-        <a href='https://www.linkedin.com/in/trnle/'>
+        <a href='https://www.linkedin.com/in/trnle/' target='_blank' rel='noreferrer'>
           <i className="fab fa-linkedin"></i>
         </a>
       </div>
