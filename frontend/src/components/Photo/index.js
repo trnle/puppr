@@ -39,7 +39,7 @@ function Photo() {
   return (
     <div className='photo-page-container'>
       <div className='single-photo-container'>
-        <img src={photo.imgURL} alt={photo.title} width='40%' height='40%' />
+        <img src={photo.imgURL} alt={photo.title} />
       </div>
       <div className='details-comments'>
         <div className='photo-details'>

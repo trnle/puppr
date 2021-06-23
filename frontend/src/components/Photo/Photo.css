@@ -6,6 +6,8 @@
 .single-photo-container img {
   display: block;
   margin: 0 auto;
+  height: 500px;
+  width: auto;
 }
 
 .details-comments {
