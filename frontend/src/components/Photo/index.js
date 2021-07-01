@@ -46,7 +46,7 @@ function Photo() {
           {sessionUser.id === photo.User?.id && <EditPhotoModal />}
           <div className='user-follow'>
             <a id='photographer' href={`/profile/${photo.User?.id}`} onClick={navProfile}>{photo.User?.username}</a>
-            {sessionUser.id !== photo.User?.id && <button className='follow-btn'>Follow</button>}
+            {/* {sessionUser.id !== photo.User?.id && <button className='follow-btn'>Follow</button>} */}
           </div>
           <div className='title-album-container'>
             <p id='photo-title'>{photo.title}</p>
