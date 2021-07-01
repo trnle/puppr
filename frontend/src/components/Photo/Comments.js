@@ -17,10 +17,7 @@ function Comments() {
   let otherComments = Object.values(comments).filter(comment => comment.userId !== sessionUser.id)
 
   const [newComment, setNewComment] = useState('');
-  // const [currentComment, setCurrentComment] = useState(-1);
   const [deletedCommentId, setDeletedCommentId] = useState('');
-
-  // const [body, setBody] = useState('');
 
   useEffect(() => {
     dispatch(getComments(id));
@@ -43,22 +40,6 @@ function Comments() {
     e.preventDefault();
     dispatch(deleteComment(deletedCommentId));
   }
-
-  // const handleEdit = i => {
-  //   setCurrentComment(i);
-  // }
-
-  // const handleSaveEdit = e => {
-  //   e.preventDefault();
-  //   const updateComment = {
-  //     body,
-  //     userId: sessionUser.id,
-  //     photoId: id
-  //   }
-  //   setCurrentComment(!currentComment);
-  //   // console.log('testttting', updateComment);
-  //   return dispatch(updateUserComment(updateComment));
-  // }
 
   if (!sessionUser) {
     return (
@@ -92,13 +73,6 @@ function Comments() {
               <div className='edit-user-comment'>
                 <p className='session-user-comment'>{comment.body}</p>
                 <div className='form'>
-                  {/* {currentComment === i &&
-                    <form className='input-form' onSubmit={handleSaveEdit}>
-                      <input type='text' value={body} onChange={e => setBody(e.target.value)} />
-                      <button id='save-btn'>Save</button>
-                    </form>
-                  }
-                  <button id='edit-comment-btn' onClick={() => handleEdit(i)}>Edit</button> */}
                   <form onSubmit={handleDelete}>
                     <button id='delete-btn' type='submit' onClick={e => setDeletedCommentId(comment.id)}>X</button>
                   </form>
@@ -109,7 +83,7 @@ function Comments() {
           <hr id='comments-hr'/>
           <div className='user-comment-container'>
             <form onSubmit={addUserComment}>
-              <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="53" rows="7" required></textarea>
+              <textarea id='comment-box' value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' required></textarea>
               <button id='comment-btn'>Comment</button>
             </form>
           </div>
