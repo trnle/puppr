@@ -19,9 +19,7 @@
 }
 
 #edit-btn {
-  display: inline-block;
-  margin-left: 23.7vw;
-  position: absolute;
+  float: right;
   font-weight: bold;
   padding: 6px 15px;
   background-color: #c0bebe;
