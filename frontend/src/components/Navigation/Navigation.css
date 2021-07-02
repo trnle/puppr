@@ -95,3 +95,12 @@
   text-decoration: none;
   padding: 6px 20px;
 }
+
+@media screen and (max-width: 500px) {
+  .dropdown-menu {
+    min-width: 160px;
+    right: 0;
+    margin-right: 0;
+    padding: 12px 0;
+  }
+}
