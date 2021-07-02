@@ -83,7 +83,7 @@ function Comments() {
           <hr id='comments-hr'/>
           <div className='user-comment-container'>
             <form onSubmit={addUserComment}>
-              <textarea id='comment-box' value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' required></textarea>
+              <textarea className='comment-box' value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' required></textarea>
               <button id='comment-btn'>Comment</button>
             </form>
           </div>
@@ -109,7 +109,7 @@ function Comments() {
         <hr id='comments-hr'/>
         <div className='user-comment-container'>
           <form onSubmit={addUserComment}>
-            <textarea value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="53" rows="7" required></textarea>
+            <textarea className='comment-box' value={newComment} onChange={e => setNewComment(e.target.value)} placeholder='Write a comment...' cols="53" rows="7" required></textarea>
             <button id='comment-btn'>Comment</button>
           </form>
         </div>

@@ -151,7 +151,7 @@ hr#comments-hr {
   justify-content: space-between;
 }
 
-#comment-box {
+.comment-box {
   width: 95%;
   height: 100px;
 }
