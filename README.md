@@ -46,6 +46,7 @@ Check out the [wiki](https://github.com/trnle/puppr/wiki)!
 ***
 
 ### Stretch Goals
+* [x] Responsive web design
 * [ ] Search for photos
 * [ ] Tags
 * [ ] Gallery carousel
